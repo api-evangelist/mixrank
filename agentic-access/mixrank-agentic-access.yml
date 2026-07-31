@@ -1,0 +1,822 @@
+generated: '2026-07-20'
+method: generated
+source: openapi/mixrank-openapi.yml
+description: Recommended x-agentic-access execution contracts, classified heuristically from
+  the OpenAPI. A governance starting point for exposing this API to AI agents — review and bind
+  audience per deployment. See research/curity/agentic-governance/.
+summary:
+  operations: 77
+  by_action_class:
+    connected: 71
+    acting: 6
+  by_consequence:
+    read: 71
+    write: 6
+  human_in_the_loop_required: 0
+operations:
+- path: /echo
+  method: get
+  operationId: echo
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /usage
+  method: get
+  operationId: getUsage
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /companies
+  method: get
+  operationId: listCompanies
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /companies/{company_id}
+  method: get
+  operationId: getCompany
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /companies/match
+  method: get
+  operationId: matchCompany
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /companies/{company_id}/employee-metrics
+  method: get
+  operationId: getCompanyEmployeeMetrics
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /companies/{company_id}/employee-metrics/{job_tag_id}/timeseries
+  method: get
+  operationId: getCompanyEmployeeMetricsTimeseries
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /companies/{company_id}/timeseries
+  method: get
+  operationId: getCompanyTimeseries
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /jobtags
+  method: get
+  operationId: listJobTags
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /companies/segment-preview
+  method: get
+  operationId: previewCompanySegment
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /companies/segment-preview
+  method: post
+  operationId: previewCompanySegmentPost
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /companies/segment-query
+  method: get
+  operationId: queryCompanySegment
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /companies/segment-query
+  method: post
+  operationId: queryCompanySegmentPost
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /person/segment-preview
+  method: get
+  operationId: previewPersonSegment
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /person/segment-preview
+  method: post
+  operationId: previewPersonSegmentPost
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /person/segment-query
+  method: get
+  operationId: queryPersonSegment
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /person/segment-query
+  method: post
+  operationId: queryPersonSegmentPost
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /email/validate
+  method: get
+  operationId: validateEmail
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /email/validate/bulk-job/{job_id}
+  method: get
+  operationId: getEmailBulkJob
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /email/validate/bulk-job/{job_id}
+  method: delete
+  operationId: deleteEmailBulkJob
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /email/validate/bulk-job
+  method: get
+  operationId: listEmailBulkJobs
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /email/validate/bulk-job
+  method: post
+  operationId: createEmailBulkJob
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /email/prospect
+  method: get
+  operationId: prospectEmail
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /segment-features/{segment}
+  method: get
+  operationId: listSegmentFeatures
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /segment-result
+  method: get
+  operationId: getSegmentResult
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /appstore/ipa/{ipa_id}
+  method: get
+  operationId: getAppstoreIpa
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /appstore/apps
+  method: get
+  operationId: listAppstoreApps
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /appstore/apps/{app_id}
+  method: get
+  operationId: getAppstoreApp
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /appstore/apps/{app_id}/rankings
+  method: get
+  operationId: getAppstoreAppRankings
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /appstore/apps/{app_id}/rankings-history
+  method: get
+  operationId: getAppstoreAppRankingsHistory
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /appstore/apps/{app_id}/sdks
+  method: get
+  operationId: getAppstoreAppSdks
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /appstore/apps/{app_id}/configs
+  method: get
+  operationId: getAppstoreAppConfigs
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /appstore/apps/{app_id}/versions
+  method: get
+  operationId: getAppstoreAppVersions
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /appstore/apps/{app_id}/iaps
+  method: get
+  operationId: getAppstoreAppIaps
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /appstore/apps/{app_id}/reviews
+  method: get
+  operationId: getAppstoreAppReviews
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /appstore/apps/{app_id}/downloads
+  method: get
+  operationId: getAppstoreAppDownloads
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /appstore/apps/{app_id}/revenue
+  method: get
+  operationId: getAppstoreAppRevenue
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /appstore/developers/{developer_id}/apps
+  method: get
+  operationId: getAppstoreDeveloperApps
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /appstore/privacy/labels
+  method: get
+  operationId: listAppstorePrivacyLabels
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /appstore/privacy/datatype
+  method: get
+  operationId: listAppstorePrivacyDataTypes
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /appstore/privacy/linkage
+  method: get
+  operationId: listAppstorePrivacyLinkage
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /appstore/privacy/purpose
+  method: get
+  operationId: listAppstorePrivacyPurpose
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /appstore/rankings
+  method: get
+  operationId: listAppstoreRankings
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /appstore/rankings/{container}/{genre}/{country}
+  method: get
+  operationId: getAppstoreRankings
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /appstore/sdks
+  method: get
+  operationId: listAppstoreSdks
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /appstore/sdks/{sdk_slug}
+  method: get
+  operationId: getAppstoreSdk
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /appstore/sdks/{sdk_slug}/installs
+  method: get
+  operationId: getAppstoreSdkInstalls
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /appstore/sdks/{sdk_slug}/install-trend
+  method: get
+  operationId: getAppstoreSdkInstallTrend
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /appstore/sdks/{sdk_slug}/uninstalls
+  method: get
+  operationId: getAppstoreSdkUninstalls
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /appstore/sdks/{sdk_slug}/genres
+  method: get
+  operationId: getAppstoreSdkGenres
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /appstore/sdks/{sdk_slug}/versions
+  method: get
+  operationId: getAppstoreSdkVersions
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /playstore/apks/{package_name}/{version_id}
+  method: get
+  operationId: getPlaystoreApk
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /playstore/apps
+  method: get
+  operationId: listPlaystoreApps
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /playstore/apps/{pname}
+  method: get
+  operationId: getPlaystoreApp
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /playstore/apps/{pname}/images
+  method: get
+  operationId: getPlaystoreAppImages
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /playstore/apps/{pname}/rankings
+  method: get
+  operationId: getPlaystoreAppRankings
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /playstore/apps/{pname}/rankings-history
+  method: get
+  operationId: getPlaystoreAppRankingsHistory
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /playstore/apps/{pname}/sdks
+  method: get
+  operationId: getPlaystoreAppSdks
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /playstore/apps/{pname}/namespaces
+  method: get
+  operationId: getPlaystoreAppNamespaces
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /playstore/apps/{pname}/versions
+  method: get
+  operationId: getPlaystoreAppVersions
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /playstore/apps/{pname}/versions/{version_code}/apks
+  method: get
+  operationId: getPlaystoreAppVersionApks
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /playstore/developers/{developer_id}/apps
+  method: get
+  operationId: getPlaystoreDeveloperApps
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /playstore/rankings
+  method: get
+  operationId: listPlaystoreRankings
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /playstore/rankings/{container}/{category}/{country}
+  method: get
+  operationId: getPlaystoreRankings
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /playstore/sdks
+  method: get
+  operationId: listPlaystoreSdks
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /playstore/sdks/{sdk_slug}
+  method: get
+  operationId: getPlaystoreSdk
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /playstore/sdks/{sdk_slug}/installs
+  method: get
+  operationId: getPlaystoreSdkInstalls
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /playstore/sdks/{sdk_slug}/install-trend
+  method: get
+  operationId: getPlaystoreSdkInstallTrend
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /playstore/sdks/{sdk_slug}/uninstalls
+  method: get
+  operationId: getPlaystoreSdkUninstalls
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /playstore/sdks/{sdk_slug}/categories
+  method: get
+  operationId: getPlaystoreSdkCategories
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /playstore/sdks/{sdk_slug}/downloads
+  method: get
+  operationId: getPlaystoreSdkDownloads
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /web/sites
+  method: get
+  operationId: listWebSites
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /web/sites/{domain}
+  method: get
+  operationId: getWebSite
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /web/sites/{domain}/tags
+  method: get
+  operationId: getWebSiteTags
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /web/tags
+  method: get
+  operationId: listWebTags
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /web/tags/{slug}
+  method: get
+  operationId: getWebTag
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /web/tags/{slug}/sites
+  method: get
+  operationId: getWebTagSites
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none

@@ -1,0 +1,53 @@
+generated: '2026-07-20'
+method: searched
+source: https://mixrank.com/api/documentation
+api: openapi/mixrank-openapi.yml
+authentication:
+  style: api-key-in-path
+  detail: API key supplied as a URL path segment; see authentication/mixrank-authentication.yml
+  ref: authentication/mixrank-authentication.yml
+media_type:
+  request: application/json
+  response: application/json
+  notes: All responses are JSON. Dates use ISO 8601 (YYYY-MM-DD). Empty fields return null.
+pagination:
+  style: offset
+  params:
+    offset: Number of results to skip (default 0)
+    page_size: Results per page (varies by endpoint, typically 1-100)
+    sort_field: Field to sort by
+    sort_order: Sort direction (asc/desc)
+  notes: >-
+    List endpoints use offset-based pagination with optional sort_field and
+    sort_order. Large extraction jobs use the asynchronous segment-query and
+    bulk-job pattern instead of paging (see async).
+idempotency:
+  supported: false
+  notes: >-
+    MixRank does not document an idempotency-key header. Most operations are
+    read-only GETs; the write surface (bulk email-validation jobs, segment
+    queries) is job-based rather than idempotent-by-key.
+async:
+  supported: true
+  pattern: job
+  detail: >-
+    Bulk email validation and segment extraction are asynchronous. A job is
+    created (POST /email/validate/bulk-job, GET/POST segment-query), then polled
+    (GET /email/validate/bulk-job/{job_id}, GET /segment-result), and output can
+    be deleted (DELETE /email/validate/bulk-job/{job_id}).
+error_envelope:
+  shape: object with an "errors" field
+  detail: >-
+    Errors are returned in an "errors" field with an appropriate HTTP status
+    code. See errors/mixrank-problem-types.yml.
+  ref: errors/mixrank-problem-types.yml
+rate_limit_signaling:
+  detail: >-
+    Request limits depend on the API license tier; remaining quota is checked
+    via the /usage endpoint. Exceeding limits may interrupt service.
+  ref: rate-limits/mixrank-rate-limits.yml
+versioning:
+  scheme: uri-path
+  current: v2
+  detail: Version is embedded in the base path (/v2/json/).
+  ref: lifecycle/mixrank-lifecycle.yml

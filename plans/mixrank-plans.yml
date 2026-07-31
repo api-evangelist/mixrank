@@ -1,0 +1,61 @@
+generated: '2026-07-20'
+method: searched
+source: https://mixrank.com/pricing
+currency: USD
+plans:
+- name: Core
+  product: Mobile Apps & SDK platform
+  price: 0
+  interval: month
+  features:
+  - 1 seat
+  - web access
+  - 50 alerts/month
+- name: Professional
+  product: Mobile Apps & SDK platform
+  price: null
+  interval: month
+  features:
+  - 10 seats
+  - API access
+  - unlimited alerts
+- name: Enterprise
+  product: Mobile Apps & SDK platform
+  price: null
+  interval: month
+  features:
+  - 30 seats
+  - database access
+  - 100,000 updates/day
+  - custom integrations
+- name: API 250K
+  product: Data APIs (Enrich, Match, LiveScan, Posts)
+  price: null
+  interval: year
+  features:
+  - 250,000 requests
+  - annual contract
+- name: API 500K
+  product: Data APIs
+  price: null
+  interval: year
+  features:
+  - 500,000 requests
+  - annual contract
+- name: API 1M
+  product: Data APIs
+  price: null
+  interval: year
+  features:
+  - 1,000,000 requests
+  - annual contract
+data_feeds:
+- Global Company Dataset (45M+ records)
+- Global People Dataset (700M+ records)
+- Job Postings Dataset (1B+ records)
+native_deliveries:
+- JSONL flat-file feed
+- MixRank Cloud PostgreSQL (dedicated & shared)
+- Snowflake Secure Data Sharing
+- Amazon Redshift Datashare
+- Google BigQuery (coming soon)

@@ -1,0 +1,242 @@
+generated: '2026-07-20'
+method: derived
+status: candidate
+source: openapi/mixrank-openapi.yml
+note: No official hosted MCP server was found for MixRank. This is a CANDIDATE tool list derived from the documented REST
+  operations (one tool per operationId).
+server:
+  name: mixrank
+  transport: http
+  url: null
+tools:
+- name: echo
+  description: Validate API key and confirm authentication
+  source_operation: openapi/mixrank-openapi.yml#echo
+- name: getUsage
+  description: View API usage metrics and remaining request quota
+  source_operation: openapi/mixrank-openapi.yml#getUsage
+- name: listCompanies
+  description: List/search the company directory
+  source_operation: openapi/mixrank-openapi.yml#listCompanies
+- name: getCompany
+  description: Get a company overview by id
+  source_operation: openapi/mixrank-openapi.yml#getCompany
+- name: matchCompany
+  description: Fuzzy match a company by name, URL, or LinkedIn
+  source_operation: openapi/mixrank-openapi.yml#matchCompany
+- name: getCompanyEmployeeMetrics
+  description: Headcount by employee type for a company
+  source_operation: openapi/mixrank-openapi.yml#getCompanyEmployeeMetrics
+- name: getCompanyEmployeeMetricsTimeseries
+  description: Employee-metric trends for a job tag over time
+  source_operation: openapi/mixrank-openapi.yml#getCompanyEmployeeMetricsTimeseries
+- name: getCompanyTimeseries
+  description: Employee and social trends for a company over time
+  source_operation: openapi/mixrank-openapi.yml#getCompanyTimeseries
+- name: listJobTags
+  description: List the job classification ontology
+  source_operation: openapi/mixrank-openapi.yml#listJobTags
+- name: previewCompanySegment
+  description: Preview a company segment query with instant results
+  source_operation: openapi/mixrank-openapi.yml#previewCompanySegment
+- name: previewCompanySegmentPost
+  description: Preview a company segment query (POST body)
+  source_operation: openapi/mixrank-openapi.yml#previewCompanySegmentPost
+- name: queryCompanySegment
+  description: Run a company segment query producing a downloadable file
+  source_operation: openapi/mixrank-openapi.yml#queryCompanySegment
+- name: queryCompanySegmentPost
+  description: Run a company segment query (POST body)
+  source_operation: openapi/mixrank-openapi.yml#queryCompanySegmentPost
+- name: previewPersonSegment
+  description: Preview a person segment query with instant results
+  source_operation: openapi/mixrank-openapi.yml#previewPersonSegment
+- name: previewPersonSegmentPost
+  description: Preview a person segment query (POST body)
+  source_operation: openapi/mixrank-openapi.yml#previewPersonSegmentPost
+- name: queryPersonSegment
+  description: Run a person segment query producing a downloadable file
+  source_operation: openapi/mixrank-openapi.yml#queryPersonSegment
+- name: queryPersonSegmentPost
+  description: Run a person segment query (POST body)
+  source_operation: openapi/mixrank-openapi.yml#queryPersonSegmentPost
+- name: validateEmail
+  description: Verify whether an email address exists
+  source_operation: openapi/mixrank-openapi.yml#validateEmail
+- name: getEmailBulkJob
+  description: Check the status of a bulk email-validation job
+  source_operation: openapi/mixrank-openapi.yml#getEmailBulkJob
+- name: deleteEmailBulkJob
+  description: Delete the output of a bulk email-validation job
+  source_operation: openapi/mixrank-openapi.yml#deleteEmailBulkJob
+- name: listEmailBulkJobs
+  description: List previous bulk email-validation jobs
+  source_operation: openapi/mixrank-openapi.yml#listEmailBulkJobs
+- name: createEmailBulkJob
+  description: Submit a bulk email-validation job
+  source_operation: openapi/mixrank-openapi.yml#createEmailBulkJob
+- name: prospectEmail
+  description: Generate a likely email for a person at a company
+  source_operation: openapi/mixrank-openapi.yml#prospectEmail
+- name: listSegmentFeatures
+  description: List searchable features for a segment
+  source_operation: openapi/mixrank-openapi.yml#listSegmentFeatures
+- name: getSegmentResult
+  description: Download the results of a segment query
+  source_operation: openapi/mixrank-openapi.yml#getSegmentResult
+- name: getAppstoreIpa
+  description: Get IPA download details
+  source_operation: openapi/mixrank-openapi.yml#getAppstoreIpa
+- name: listAppstoreApps
+  description: List/search the iOS app directory
+  source_operation: openapi/mixrank-openapi.yml#listAppstoreApps
+- name: getAppstoreApp
+  description: Get an iOS app summary
+  source_operation: openapi/mixrank-openapi.yml#getAppstoreApp
+- name: getAppstoreAppRankings
+  description: Current rankings for an iOS app
+  source_operation: openapi/mixrank-openapi.yml#getAppstoreAppRankings
+- name: getAppstoreAppRankingsHistory
+  description: Ranking history for an iOS app
+  source_operation: openapi/mixrank-openapi.yml#getAppstoreAppRankingsHistory
+- name: getAppstoreAppSdks
+  description: SDKs installed in an iOS app
+  source_operation: openapi/mixrank-openapi.yml#getAppstoreAppSdks
+- name: getAppstoreAppConfigs
+  description: Info.plist configuration for an iOS app
+  source_operation: openapi/mixrank-openapi.yml#getAppstoreAppConfigs
+- name: getAppstoreAppVersions
+  description: Release history for an iOS app
+  source_operation: openapi/mixrank-openapi.yml#getAppstoreAppVersions
+- name: getAppstoreAppIaps
+  description: In-app purchases for an iOS app
+  source_operation: openapi/mixrank-openapi.yml#getAppstoreAppIaps
+- name: getAppstoreAppReviews
+  description: User reviews for an iOS app
+  source_operation: openapi/mixrank-openapi.yml#getAppstoreAppReviews
+- name: getAppstoreAppDownloads
+  description: Download trends for an iOS app
+  source_operation: openapi/mixrank-openapi.yml#getAppstoreAppDownloads
+- name: getAppstoreAppRevenue
+  description: Revenue trends for an iOS app
+  source_operation: openapi/mixrank-openapi.yml#getAppstoreAppRevenue
+- name: getAppstoreDeveloperApps
+  description: Apps published by an iOS developer
+  source_operation: openapi/mixrank-openapi.yml#getAppstoreDeveloperApps
+- name: listAppstorePrivacyLabels
+  description: List iOS privacy label options
+  source_operation: openapi/mixrank-openapi.yml#listAppstorePrivacyLabels
+- name: listAppstorePrivacyDataTypes
+  description: iOS privacy data type dictionary
+  source_operation: openapi/mixrank-openapi.yml#listAppstorePrivacyDataTypes
+- name: listAppstorePrivacyLinkage
+  description: iOS privacy linkage type dictionary
+  source_operation: openapi/mixrank-openapi.yml#listAppstorePrivacyLinkage
+- name: listAppstorePrivacyPurpose
+  description: iOS privacy collection purpose dictionary
+  source_operation: openapi/mixrank-openapi.yml#listAppstorePrivacyPurpose
+- name: listAppstoreRankings
+  description: List available iOS ranking lists
+  source_operation: openapi/mixrank-openapi.yml#listAppstoreRankings
+- name: getAppstoreRankings
+  description: Ranked iOS apps for a list
+  source_operation: openapi/mixrank-openapi.yml#getAppstoreRankings
+- name: listAppstoreSdks
+  description: List/search the iOS SDK directory
+  source_operation: openapi/mixrank-openapi.yml#listAppstoreSdks
+- name: getAppstoreSdk
+  description: Get iOS SDK details
+  source_operation: openapi/mixrank-openapi.yml#getAppstoreSdk
+- name: getAppstoreSdkInstalls
+  description: Apps currently using an iOS SDK
+  source_operation: openapi/mixrank-openapi.yml#getAppstoreSdkInstalls
+- name: getAppstoreSdkInstallTrend
+  description: Installation trend for an iOS SDK
+  source_operation: openapi/mixrank-openapi.yml#getAppstoreSdkInstallTrend
+- name: getAppstoreSdkUninstalls
+  description: Uninstall counts for an iOS SDK
+  source_operation: openapi/mixrank-openapi.yml#getAppstoreSdkUninstalls
+- name: getAppstoreSdkGenres
+  description: Genre distribution for an iOS SDK
+  source_operation: openapi/mixrank-openapi.yml#getAppstoreSdkGenres
+- name: getAppstoreSdkVersions
+  description: Versions of an iOS SDK
+  source_operation: openapi/mixrank-openapi.yml#getAppstoreSdkVersions
+- name: getPlaystoreApk
+  description: Get APK download details
+  source_operation: openapi/mixrank-openapi.yml#getPlaystoreApk
+- name: listPlaystoreApps
+  description: List/search the Play Store app directory
+  source_operation: openapi/mixrank-openapi.yml#listPlaystoreApps
+- name: getPlaystoreApp
+  description: Get a Play Store app overview
+  source_operation: openapi/mixrank-openapi.yml#getPlaystoreApp
+- name: getPlaystoreAppImages
+  description: Screenshots for a Play Store app
+  source_operation: openapi/mixrank-openapi.yml#getPlaystoreAppImages
+- name: getPlaystoreAppRankings
+  description: Current rankings for a Play Store app
+  source_operation: openapi/mixrank-openapi.yml#getPlaystoreAppRankings
+- name: getPlaystoreAppRankingsHistory
+  description: Ranking history for a Play Store app
+  source_operation: openapi/mixrank-openapi.yml#getPlaystoreAppRankingsHistory
+- name: getPlaystoreAppSdks
+  description: SDKs installed in a Play Store app
+  source_operation: openapi/mixrank-openapi.yml#getPlaystoreAppSdks
+- name: getPlaystoreAppNamespaces
+  description: Package namespaces for a Play Store app
+  source_operation: openapi/mixrank-openapi.yml#getPlaystoreAppNamespaces
+- name: getPlaystoreAppVersions
+  description: Version list for a Play Store app
+  source_operation: openapi/mixrank-openapi.yml#getPlaystoreAppVersions
+- name: getPlaystoreAppVersionApks
+  description: APKs for a Play Store app version
+  source_operation: openapi/mixrank-openapi.yml#getPlaystoreAppVersionApks
+- name: getPlaystoreDeveloperApps
+  description: Apps published by a Play Store developer
+  source_operation: openapi/mixrank-openapi.yml#getPlaystoreDeveloperApps
+- name: listPlaystoreRankings
+  description: List available Play Store ranking lists
+  source_operation: openapi/mixrank-openapi.yml#listPlaystoreRankings
+- name: getPlaystoreRankings
+  description: Ranked Play Store apps for a list
+  source_operation: openapi/mixrank-openapi.yml#getPlaystoreRankings
+- name: listPlaystoreSdks
+  description: List/search the Play Store SDK directory
+  source_operation: openapi/mixrank-openapi.yml#listPlaystoreSdks
+- name: getPlaystoreSdk
+  description: Get Play Store SDK overview
+  source_operation: openapi/mixrank-openapi.yml#getPlaystoreSdk
+- name: getPlaystoreSdkInstalls
+  description: App installations for a Play Store SDK
+  source_operation: openapi/mixrank-openapi.yml#getPlaystoreSdkInstalls
+- name: getPlaystoreSdkInstallTrend
+  description: Install trend for a Play Store SDK
+  source_operation: openapi/mixrank-openapi.yml#getPlaystoreSdkInstallTrend
+- name: getPlaystoreSdkUninstalls
+  description: Uninstalls for a Play Store SDK
+  source_operation: openapi/mixrank-openapi.yml#getPlaystoreSdkUninstalls
+- name: getPlaystoreSdkCategories
+  description: Category distribution for a Play Store SDK
+  source_operation: openapi/mixrank-openapi.yml#getPlaystoreSdkCategories
+- name: getPlaystoreSdkDownloads
+  description: Download data for a Play Store SDK
+  source_operation: openapi/mixrank-openapi.yml#getPlaystoreSdkDownloads
+- name: listWebSites
+  description: List/search the website directory
+  source_operation: openapi/mixrank-openapi.yml#listWebSites
+- name: getWebSite
+  description: Get a website overview
+  source_operation: openapi/mixrank-openapi.yml#getWebSite
+- name: getWebSiteTags
+  description: Technology tags assigned to a website
+  source_operation: openapi/mixrank-openapi.yml#getWebSiteTags
+- name: listWebTags
+  description: List the web technology tag directory
+  source_operation: openapi/mixrank-openapi.yml#listWebTags
+- name: getWebTag
+  description: Get web technology tag details
+  source_operation: openapi/mixrank-openapi.yml#getWebTag
+- name: getWebTagSites
+  description: Websites detected using a technology tag
+  source_operation: openapi/mixrank-openapi.yml#getWebTagSites

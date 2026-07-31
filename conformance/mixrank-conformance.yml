@@ -1,0 +1,28 @@
+generated: '2026-07-20'
+method: searched
+source: https://mixrank.com/pricing
+standards:
+- id: gdpr
+  conforms: true
+  evidence: MixRank states it is "fully GDPR and CCPA compliant" on its pricing/data pages.
+  source: https://mixrank.com/pricing
+- id: ccpa
+  conforms: true
+  evidence: MixRank states it is "fully GDPR and CCPA compliant".
+  source: https://mixrank.com/pricing
+- id: oauth2
+  conforms: false
+  evidence: Authentication is via an API key in the URL path; no OAuth surface.
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: Errors use a custom JSON envelope with an "errors" field, not application/problem+json.
+- id: json-api
+  conforms: false
+  evidence: Responses are plain JSON, not JSON:API structured.
+compliance_programs:
+- name: GDPR
+  published: true
+  url: https://mixrank.com/privacy-policy/
+- name: CCPA
+  published: true
+  url: https://mixrank.com/privacy-policy/

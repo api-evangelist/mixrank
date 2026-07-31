@@ -1,0 +1,20 @@
+generated: '2026-07-20'
+method: generated
+source: openapi/mixrank-openapi.yml
+skills:
+- file: mixrank-enrich-company.md
+  name: Match and enrich a company
+  api: openapi/mixrank-openapi.yml
+  operations: [matchCompany, getCompany, getCompanyEmployeeMetrics, getCompanyTimeseries]
+- file: mixrank-app-sdk-intelligence.md
+  name: Analyze a mobile app's SDK stack
+  api: openapi/mixrank-openapi.yml
+  operations: [listAppstoreApps, getAppstoreApp, getAppstoreAppSdks, getAppstoreSdkInstalls]
+- file: mixrank-web-technographics.md
+  name: Look up a website's technology stack
+  api: openapi/mixrank-openapi.yml
+  operations: [getWebSite, getWebSiteTags, getWebTag, getWebTagSites]
+- file: mixrank-verify-email.md
+  name: Prospect and verify an email address
+  api: openapi/mixrank-openapi.yml
+  operations: [prospectEmail, validateEmail, createEmailBulkJob, getEmailBulkJob]

@@ -1,0 +1,32 @@
+generated: '2026-07-20'
+method: searched
+source: https://mixrank.com/api/documentation
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - path
+  oauth2_flows: []
+  notes: >-
+    MixRank authenticates every request with an API key supplied as a segment of
+    the request URL path (https://api.mixrank.com/v2/json/{api_key}/...), rather
+    than an Authorization header or query parameter. There is no OAuth surface.
+    An API key is obtained by logging in or requesting API access; the /echo
+    endpoint validates a key and /usage reports remaining quota.
+schemes:
+- name: ApiKeyPath
+  type: apiKey
+  in: path
+  parameter: api_key
+  description: >-
+    API key passed as a URL path segment. Not expressible as a standard OpenAPI
+    apiKey securityScheme (which supports header/query/cookie only), so it is
+    modeled as a server variable in openapi/mixrank-openapi.yml and documented
+    here.
+  sources:
+  - https://mixrank.com/api/documentation
+obtain:
+  url: https://mixrank.com/login
+  request_access: https://mixrank.com/get-started/
+validate_operation: echo
+usage_operation: getUsage

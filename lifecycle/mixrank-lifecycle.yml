@@ -1,0 +1,25 @@
+generated: '2026-07-20'
+method: searched
+source: https://mixrank.com/api/documentation
+versioning:
+  scheme: uri-path
+  current: v2
+  docs: https://mixrank.com/api/documentation
+  detail: The major version is embedded in the base path (/v2/json/).
+deprecation:
+  policy_url: null
+  sunset_header: false
+  notes: No public deprecation policy or RFC 8594 Sunset/Deprecation header support was found.
+sla:
+  url: https://mixrank.com/pricing
+  support_tiers:
+  - name: Standard Support
+    eligibility: ACV under $100,000
+    channels: [email]
+    response_target: 24 hours
+  - name: Enterprise Support
+    eligibility: ACV over $100,000
+    channels: [slack, email]
+    response_target: 8 hours
+status_page: null
+deprecated_operations: []

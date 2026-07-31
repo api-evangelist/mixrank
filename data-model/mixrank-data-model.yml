@@ -1,0 +1,103 @@
+generated: '2026-07-20'
+method: derived
+source: openapi/mixrank-openapi.yml
+notes: >-
+  Entity graph derived from MixRank's documented API resources and their path
+  nesting (id-reference fields). MixRank does not publish JSON schemas, so
+  attributes are not enumerated; relationships reflect the documented endpoints.
+entities:
+- name: Company
+  id_field: company_id
+  endpoints: [getCompany, listCompanies, matchCompany]
+- name: EmployeeMetric
+  belongs_to: Company
+- name: JobTag
+  id_field: job_tag_id
+  endpoints: [listJobTags]
+- name: Person
+  endpoints: [previewPersonSegment, queryPersonSegment]
+- name: EmailBulkJob
+  id_field: job_id
+  endpoints: [createEmailBulkJob, getEmailBulkJob, listEmailBulkJobs, deleteEmailBulkJob]
+- name: Segment
+  id_field: segment
+  endpoints: [listSegmentFeatures, getSegmentResult]
+- name: AppstoreApp
+  id_field: app_id
+  endpoints: [getAppstoreApp, listAppstoreApps]
+- name: AppstoreDeveloper
+  id_field: developer_id
+- name: AppstoreSdk
+  id_field: sdk_slug
+  endpoints: [getAppstoreSdk, listAppstoreSdks]
+- name: Ipa
+  id_field: ipa_id
+- name: PlaystoreApp
+  id_field: pname
+  endpoints: [getPlaystoreApp, listPlaystoreApps]
+- name: PlaystoreDeveloper
+  id_field: developer_id
+- name: PlaystoreSdk
+  id_field: sdk_slug
+  endpoints: [getPlaystoreSdk, listPlaystoreSdks]
+- name: Apk
+  id_field: package_name
+- name: WebSite
+  id_field: domain
+  endpoints: [getWebSite, listWebSites]
+- name: WebTag
+  id_field: slug
+  endpoints: [getWebTag, listWebTags]
+relationships:
+- from: EmployeeMetric
+  to: Company
+  kind: belongs_to
+  via: company_id
+- from: EmployeeMetric
+  to: JobTag
+  kind: belongs_to
+  via: job_tag_id
+- from: AppstoreApp
+  to: AppstoreDeveloper
+  kind: belongs_to
+  via: developer_id
+- from: AppstoreApp
+  to: AppstoreSdk
+  kind: has_many
+  via: getAppstoreAppSdks
+- from: AppstoreApp
+  to: Ipa
+  kind: has_many
+  via: getAppstoreAppVersions
+- from: AppstoreSdk
+  to: AppstoreApp
+  kind: has_many
+  via: getAppstoreSdkInstalls
+- from: PlaystoreApp
+  to: PlaystoreDeveloper
+  kind: belongs_to
+  via: developer_id
+- from: PlaystoreApp
+  to: PlaystoreSdk
+  kind: has_many
+  via: getPlaystoreAppSdks
+- from: PlaystoreApp
+  to: Apk
+  kind: has_many
+  via: getPlaystoreAppVersionApks
+- from: PlaystoreSdk
+  to: PlaystoreApp
+  kind: has_many
+  via: getPlaystoreSdkInstalls
+- from: WebSite
+  to: WebTag
+  kind: has_many
+  via: getWebSiteTags
+- from: WebTag
+  to: WebSite
+  kind: has_many
+  via: getWebTagSites
+- from: EmailBulkJob
+  to: Segment
+  kind: has_one
+  via: getSegmentResult

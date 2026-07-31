@@ -1,0 +1,29 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for MixRank Data API
+  version: 1.0.0
+extends: openapi/mixrank-openapi.yml
+actions:
+- target: $.info
+  update:
+    x-apievangelist-enriched: '2026-07-20'
+    x-authentication: authentication/mixrank-authentication.yml
+    x-conventions: conventions/mixrank-conventions.yml
+    x-error-catalog: errors/mixrank-problem-types.yml
+    x-lifecycle: lifecycle/mixrank-lifecycle.yml
+    x-data-model: data-model/mixrank-data-model.yml
+- target: $.info
+  update:
+    x-datasets:
+    - Company (Enrich/Match) — 45M+ profiles
+    - People — 800M+ profiles
+    - Mobile Apps & SDKs — 20M+ iOS/Android apps
+    - Web Technographics — 80M+ websites
+- target: $.info
+  update:
+    x-pagination:
+      style: offset
+      params: [offset, page_size, sort_field, sort_order]
+    x-async-jobs:
+      pattern: job
+      resources: [email/validate/bulk-job, companies/segment-query, person/segment-query]

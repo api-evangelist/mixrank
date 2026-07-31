@@ -1,0 +1,26 @@
+generated: '2026-07-20'
+method: searched
+source: https://mixrank.com/pricing
+model: license-tier-quota
+signal:
+  usage_endpoint: /usage
+  detail: >-
+    Request limits depend on the API license tier. Remaining quota is checked via
+    the /usage endpoint. Exceeding the limit may interrupt service.
+rate_limits:
+- tier: API 250K
+  limit_count: 250000
+  window: month
+  unit: requests
+- tier: API 500K
+  limit_count: 500000
+  window: month
+  unit: requests
+- tier: API 1M
+  limit_count: 1000000
+  window: month
+  unit: requests
+- tier: Enterprise (Mobile Apps & SDK platform)
+  limit_count: 100000
+  window: day
+  unit: updates

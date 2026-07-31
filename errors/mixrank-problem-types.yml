@@ -1,0 +1,31 @@
+generated: '2026-07-20'
+method: derived
+format: custom-json
+source: https://mixrank.com/api/documentation
+envelope:
+  field: errors
+  shape: >-
+    Errors are returned as JSON with an "errors" field containing error
+    message(s), alongside an appropriate HTTP status code. MixRank does not use
+    RFC 9457 application/problem+json.
+problems:
+- status: 400
+  title: Bad request
+  meaning: Malformed request, invalid parameters, or an invalid segment/query definition.
+  remediation: Validate query parameters and request body against the documentation.
+- status: 401
+  title: Unauthorized
+  meaning: Missing or invalid API key in the URL path.
+  remediation: Confirm the api_key path segment; validate it with the /echo endpoint.
+- status: 404
+  title: Not found
+  meaning: The requested company, app, SDK, website, tag, or job resource does not exist.
+  remediation: Verify the identifier; use the match/directory endpoints to resolve ids.
+- status: 429
+  title: Rate limit / quota exceeded
+  meaning: The account has exceeded its API license tier request limit.
+  remediation: Check remaining quota with /usage; slow request rate or upgrade the license tier.
+- status: 500
+  title: Internal server error
+  meaning: An unexpected error occurred on the MixRank side.
+  remediation: Retry with backoff; contact MixRank support if it persists.
