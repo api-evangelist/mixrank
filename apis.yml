@@ -34,7 +34,7 @@ accessModel:
   method: derived
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-20'
+modified: '2026-08-14'
 image: https://mixrank.com/favicon.ico
 tags:
 - Company
@@ -153,6 +153,10 @@ apis:
     url: data-model/mixrank-data-model.yml
   - type: AgenticAccess
     url: agentic-access/mixrank-agentic-access.yml
+  - type: Webhooks
+    url: asyncapi/mixrank-webhooks.yml
+  - type: Examples
+    url: examples/mixrank-examples.yml
 - aid: mixrank:mixrank-ios-app-privacy-api
   name: MixRank iOS App Privacy API
   description: The iOS App Privacy API from MixRank — 4 operation(s) for ios app privacy.
@@ -521,8 +525,16 @@ common:
   url: llms/mixrank-llms.txt
 - type: AgentSkill
   url: skills/_index.yml
+- type: Examples
+  url: examples/mixrank-examples.yml
+- type: Webhooks
+  url: asyncapi/mixrank-webhooks.yml
+- type: Packages
+  url: packages/mixrank-packages.yml
+- type: Support
+  url: mailto:support@mixrank.com
 x-enrichment:
-  date: '2026-07-20'
+  date: '2026-08-14'
   status: enriched
-  artifacts_added: 16
+  artifacts_added: 5
   pass: local-v1
