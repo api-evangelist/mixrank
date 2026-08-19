@@ -1,4 +1,4 @@
-generated: '2026-07-20'
+generated: '2026-08-14'
 method: derived
 format: custom-json
 source: https://mixrank.com/api/documentation
@@ -8,6 +8,19 @@ envelope:
     Errors are returned as JSON with an "errors" field containing error
     message(s), alongside an appropriate HTTP status code. MixRank does not use
     RFC 9457 application/problem+json.
+  observed_example: '{"errors": {"message": "The resource could not be found."}}'
+  observed_evidence:
+    url: https://api.mixrank.com/openapi.json
+    http_status: 404
+    content_type: application/json; charset=utf-8
+    observed: '2026-08-14'
+    note: >-
+      Captured live from an unauthenticated request to a non-existent path on
+      api.mixrank.com. It confirms the documented envelope shape — "errors" is an
+      OBJECT carrying a "message" string, not the array a reader might assume
+      from the plural key. MixRank publishes no error-code registry, so the
+      entries below remain derived from documented status-code semantics rather
+      than a published catalogue.
 problems:
 - status: 400
   title: Bad request
@@ -25,6 +38,12 @@ problems:
   title: Rate limit / quota exceeded
   meaning: The account has exceeded its API license tier request limit.
   remediation: Check remaining quota with /usage; slow request rate or upgrade the license tier.
+  confidence: low
+  note: >-
+    INFERRED, not published. MixRank's docs say only that "exceeding the request
+    limit may result in a service interruption" and never name a status code or
+    a Retry-After/RateLimit header. Treat 429 as the conventional expectation,
+    not a MixRank contract, and read remaining quota from /usage instead.
 - status: 500
   title: Internal server error
   meaning: An unexpected error occurred on the MixRank side.

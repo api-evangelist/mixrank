@@ -1,0 +1,90 @@
+generated: '2026-08-14'
+method: searched
+source: https://mixrank.com/api/documentation
+spec_type: null
+note: >-
+  MixRank publishes no AsyncAPI document — /asyncapi.yaml, /asyncapi.json and the
+  docs host were probed and returned 404. It DOES document a real webhook
+  callback surface on its long-running email operations, captured below verbatim
+  from the API documentation. Nothing here is invented; where the docs do not
+  name a value (e.g. the concrete `type` event names) that is recorded as
+  unknown rather than guessed.
+surface:
+  style: request-scoped callback
+  detail: >-
+    Webhooks are not subscribed to out of band. The caller passes a `webhook`
+    query parameter (an https URL) on the request itself. Given one, MixRank
+    accepts the request with HTTP 202 and a body of {"id": ..., "status":
+    "accepted"} instead of blocking, then POSTs the result to that URL as soon
+    as it is ready.
+  standard: Standard Webhooks
+  standard_url: https://www.standardwebhooks.com/
+operations:
+- operationId: prospectEmail
+  method: GET
+  path: /email/prospect
+  api: openapi/mixrank-email-api-openapi.yml
+  parameter: webhook
+  parameter_in: query
+  parameter_description: >-
+    An https url to deliver the result to. Given one, the request is accepted
+    with a 202 and a body of {"id": ..., "status": "accepted"} instead of
+    waiting for the prospecting, which can take a while. The result is POSTed to
+    this url as soon as it is ready.
+- operationId: validateEmail
+  method: GET
+  path: /email/validate
+  api: openapi/mixrank-email-api-openapi.yml
+  parameter: webhook
+  parameter_in: query
+  parameter_description: >-
+    An https url to deliver the result to. Given one, the request is accepted
+    with a 202 and a body of {"id": ..., "status": "accepted"} instead of
+    waiting for the validation. The result is POSTed to this url as soon as it
+    is ready.
+acknowledgement:
+  status: 202
+  body: '{"id": ..., "status": "accepted"}'
+delivery:
+  method: POST
+  target: the https url supplied in the `webhook` query parameter
+  payload:
+    id: Repeats the id returned in the 202 acknowledgement.
+    type: Names the event. The docs do not enumerate the concrete type values.
+    timestamp: When the result was produced.
+    data: >-
+      Carries the status the synchronous request would have answered with, and
+      is otherwise the response you would have received synchronously, or an
+      error message if it could not be answered.
+  headers:
+  - name: Webhook-Id
+    description: Mirrors the body's id.
+  - name: Webhook-Timestamp
+    description: Unix seconds.
+  - name: Webhook-Signature
+    description: >-
+      Formatted v1,<base64 hmac-sha256 of "<id>.<timestamp>.<body>"> and keyed
+      with your api key, so any Standard Webhooks client can verify it.
+  verification: >-
+    Reject a body whose signature does not match, and one whose timestamp is
+    older than you are willing to accept.
+retry:
+  policy: retried with backoff until your endpoint answers 2xx
+  max_attempts: 10
+  abandoned_after: 10 attempts
+events:
+  enumerated: false
+  note: >-
+    The payload carries a `type` field that names the event, but MixRank's
+    documentation does not publish the list of event type values. Enumerating
+    them would require an authenticated live call; they are deliberately not
+    guessed here.
+probes:
+- url: https://mixrank.com/asyncapi.yaml
+  status: 404
+- url: https://api.mixrank.com/asyncapi.json
+  status: 404
+x-evidence:
+  fetched: '2026-08-14'
+  url: https://mixrank.com/api/documentation
+  http_status: 200

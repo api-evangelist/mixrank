@@ -1,7 +1,12 @@
-generated: '2026-07-20'
+generated: '2026-08-14'
 method: generated
 source: openapi/mixrank-openapi.yml
 skills:
+- file: mixrank-webhook-callbacks.md
+  name: Receive MixRank results asynchronously over a webhook
+  api: openapi/mixrank-email-api-openapi.yml
+  operations: [prospectEmail, validateEmail]
+  source: https://mixrank.com/api/documentation
 - file: mixrank-enrich-company.md
   name: Match and enrich a company
   api: openapi/mixrank-openapi.yml

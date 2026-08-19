@@ -1,0 +1,37 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "MixRank Data Account Play Store Developers API",
+    "version": "2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Play Store Developers",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Apps published by a Play Store developer",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mixrank.com/v2/json/{api_key}/playstore/developers/:developer_id/apps",
+            "params": [
+              {
+                "name": "developer_id",
+                "value": "",
+                "type": "path",
+                "description": "developer_id identifier"
+              }
+            ]
+          },
+          "docs": "Apps published by a Play Store developer"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,169 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "MixRank Data Account iOS SDKs API",
+    "version": "2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "iOS SDKs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List/search the iOS SDK directory",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mixrank.com/v2/json/{api_key}/appstore/sdks",
+            "params": [
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to skip"
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Results per page (varies by endpoint, typically 1-100)"
+              },
+              {
+                "name": "sort_field",
+                "value": "",
+                "type": "query",
+                "description": "Field to sort by"
+              },
+              {
+                "name": "sort_order",
+                "value": "",
+                "type": "query",
+                "description": "Sort direction"
+              }
+            ]
+          },
+          "docs": "List/search the iOS SDK directory"
+        },
+        {
+          "info": {
+            "name": "Get iOS SDK details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mixrank.com/v2/json/{api_key}/appstore/sdks/:sdk_slug",
+            "params": [
+              {
+                "name": "sdk_slug",
+                "value": "",
+                "type": "path",
+                "description": "sdk_slug identifier"
+              }
+            ]
+          },
+          "docs": "Get iOS SDK details"
+        },
+        {
+          "info": {
+            "name": "Apps currently using an iOS SDK",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mixrank.com/v2/json/{api_key}/appstore/sdks/:sdk_slug/installs",
+            "params": [
+              {
+                "name": "sdk_slug",
+                "value": "",
+                "type": "path",
+                "description": "sdk_slug identifier"
+              }
+            ]
+          },
+          "docs": "Apps currently using an iOS SDK"
+        },
+        {
+          "info": {
+            "name": "Installation trend for an iOS SDK",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mixrank.com/v2/json/{api_key}/appstore/sdks/:sdk_slug/install-trend",
+            "params": [
+              {
+                "name": "sdk_slug",
+                "value": "",
+                "type": "path",
+                "description": "sdk_slug identifier"
+              }
+            ]
+          },
+          "docs": "Installation trend for an iOS SDK"
+        },
+        {
+          "info": {
+            "name": "Uninstall counts for an iOS SDK",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mixrank.com/v2/json/{api_key}/appstore/sdks/:sdk_slug/uninstalls",
+            "params": [
+              {
+                "name": "sdk_slug",
+                "value": "",
+                "type": "path",
+                "description": "sdk_slug identifier"
+              }
+            ]
+          },
+          "docs": "Uninstall counts for an iOS SDK"
+        },
+        {
+          "info": {
+            "name": "Genre distribution for an iOS SDK",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mixrank.com/v2/json/{api_key}/appstore/sdks/:sdk_slug/genres",
+            "params": [
+              {
+                "name": "sdk_slug",
+                "value": "",
+                "type": "path",
+                "description": "sdk_slug identifier"
+              }
+            ]
+          },
+          "docs": "Genre distribution for an iOS SDK"
+        },
+        {
+          "info": {
+            "name": "Versions of an iOS SDK",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mixrank.com/v2/json/{api_key}/appstore/sdks/:sdk_slug/versions",
+            "params": [
+              {
+                "name": "sdk_slug",
+                "value": "",
+                "type": "path",
+                "description": "sdk_slug identifier"
+              }
+            ]
+          },
+          "docs": "Versions of an iOS SDK"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

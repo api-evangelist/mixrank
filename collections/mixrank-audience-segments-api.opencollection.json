@@ -1,0 +1,48 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "MixRank Data Account Audience Segments API",
+    "version": "2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Audience Segments",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List searchable features for a segment",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mixrank.com/v2/json/{api_key}/segment-features/:segment",
+            "params": [
+              {
+                "name": "segment",
+                "value": "",
+                "type": "path",
+                "description": "segment identifier"
+              }
+            ]
+          },
+          "docs": "List searchable features for a segment"
+        },
+        {
+          "info": {
+            "name": "Download the results of a segment query",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mixrank.com/v2/json/{api_key}/segment-result"
+          },
+          "docs": "Download the results of a segment query"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

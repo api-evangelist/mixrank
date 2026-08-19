@@ -1,0 +1,60 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "MixRank Data Account Play Store Rankings API",
+    "version": "2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Play Store Rankings",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List available Play Store ranking lists",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mixrank.com/v2/json/{api_key}/playstore/rankings"
+          },
+          "docs": "List available Play Store ranking lists"
+        },
+        {
+          "info": {
+            "name": "Ranked Play Store apps for a list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mixrank.com/v2/json/{api_key}/playstore/rankings/:container/:category/:country",
+            "params": [
+              {
+                "name": "container",
+                "value": "",
+                "type": "path",
+                "description": "container identifier"
+              },
+              {
+                "name": "category",
+                "value": "",
+                "type": "path",
+                "description": "category identifier"
+              },
+              {
+                "name": "country",
+                "value": "",
+                "type": "path",
+                "description": "country identifier"
+              }
+            ]
+          },
+          "docs": "Ranked Play Store apps for a list"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

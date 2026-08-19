@@ -1,0 +1,130 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "MixRank Data Account Email API",
+    "version": "2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Email",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Verify whether an email address exists",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mixrank.com/v2/json/{api_key}/email/validate"
+          },
+          "docs": "Verify whether an email address exists"
+        },
+        {
+          "info": {
+            "name": "Check the status of a bulk email-validation job",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mixrank.com/v2/json/{api_key}/email/validate/bulk-job/:job_id",
+            "params": [
+              {
+                "name": "job_id",
+                "value": "",
+                "type": "path",
+                "description": "job_id identifier"
+              }
+            ]
+          },
+          "docs": "Check the status of a bulk email-validation job"
+        },
+        {
+          "info": {
+            "name": "Delete the output of a bulk email-validation job",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.mixrank.com/v2/json/{api_key}/email/validate/bulk-job/:job_id",
+            "params": [
+              {
+                "name": "job_id",
+                "value": "",
+                "type": "path",
+                "description": "job_id identifier"
+              }
+            ]
+          },
+          "docs": "Delete the output of a bulk email-validation job"
+        },
+        {
+          "info": {
+            "name": "List previous bulk email-validation jobs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mixrank.com/v2/json/{api_key}/email/validate/bulk-job",
+            "params": [
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to skip"
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Results per page (varies by endpoint, typically 1-100)"
+              },
+              {
+                "name": "sort_field",
+                "value": "",
+                "type": "query",
+                "description": "Field to sort by"
+              },
+              {
+                "name": "sort_order",
+                "value": "",
+                "type": "query",
+                "description": "Sort direction"
+              }
+            ]
+          },
+          "docs": "List previous bulk email-validation jobs"
+        },
+        {
+          "info": {
+            "name": "Submit a bulk email-validation job",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mixrank.com/v2/json/{api_key}/email/validate/bulk-job",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Submit a bulk email-validation job"
+        },
+        {
+          "info": {
+            "name": "Generate a likely email for a person at a company",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mixrank.com/v2/json/{api_key}/email/prospect"
+          },
+          "docs": "Generate a likely email for a person at a company"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

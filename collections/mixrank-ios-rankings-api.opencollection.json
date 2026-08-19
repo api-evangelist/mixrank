@@ -1,0 +1,60 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "MixRank Data Account iOS Rankings API",
+    "version": "2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "iOS Rankings",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List available iOS ranking lists",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mixrank.com/v2/json/{api_key}/appstore/rankings"
+          },
+          "docs": "List available iOS ranking lists"
+        },
+        {
+          "info": {
+            "name": "Ranked iOS apps for a list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mixrank.com/v2/json/{api_key}/appstore/rankings/:container/:genre/:country",
+            "params": [
+              {
+                "name": "container",
+                "value": "",
+                "type": "path",
+                "description": "container identifier"
+              },
+              {
+                "name": "genre",
+                "value": "",
+                "type": "path",
+                "description": "genre identifier"
+              },
+              {
+                "name": "country",
+                "value": "",
+                "type": "path",
+                "description": "country identifier"
+              }
+            ]
+          },
+          "docs": "Ranked iOS apps for a list"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

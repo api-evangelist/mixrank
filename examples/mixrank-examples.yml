@@ -1,0 +1,889 @@
+generated: '2026-08-14'
+method: searched
+source: https://mixrank.com/api/documentation
+note: 'Request examples published verbatim in MixRank''s own API documentation, one block per documented
+  operation, harvested and bound to the operationId in this repo''s OpenAPI. Each `request` is the path
+  MixRank prints in its docs; a live call prefixes it with the base URL and the API key path segment:
+  https://api.mixrank.com/v2/json/{api_key}. MixRank publishes no in-spec `examples`, so these are captured
+  here rather than injected into the harvested OpenAPI.'
+base_url: https://api.mixrank.com/v2/json/{api_key}
+format: request-path
+coverage:
+  operations_documented: 77
+  operations_with_examples: 70
+  examples_total: 180
+operations:
+- operationId: echo
+  method: GET
+  path: /echo
+  api: openapi/mixrank-account-api-openapi.yml
+  tag: Account
+  title: Account » Echo
+  examples:
+  - description: Check your API key.
+    request: /echo
+- operationId: getUsage
+  method: GET
+  path: /usage
+  api: openapi/mixrank-account-api-openapi.yml
+  tag: Account
+  title: Account » Usage
+  examples:
+  - description: Check your API usage for the current month.
+    request: /usage
+  - description: Check your API usage for June 2022.
+    request: /usage?month=2022-06
+- operationId: listCompanies
+  method: GET
+  path: /companies
+  api: openapi/mixrank-companies-api-openapi.yml
+  tag: Companies
+  title: Companies » Directory
+  examples:
+  - description: Top 4 companies by number of employees.
+    request: /companies?page_size=4
+  - description: Search for companies matching "rovio".
+    request: /companies?search=rovio
+- operationId: getCompany
+  method: GET
+  path: /companies/{company_id}
+  api: openapi/mixrank-companies-api-openapi.yml
+  tag: Companies
+  title: Companies » Overview
+  examples:
+  - description: Company information for Google, Inc.
+    request: /companies/81760867
+- operationId: matchCompany
+  method: GET
+  path: /companies/match
+  api: openapi/mixrank-companies-api-openapi.yml
+  tag: Companies
+  title: Companies » Match
+  examples:
+  - description: Find best match to company name "Xerox".
+    request: /companies/match?name=Xerox
+  - description: Match "MAXDigital LLC".
+    request: /companies/match?name=MAXDigital%20LLC
+  - description: Match "UNC-Chapel Hill".
+    request: /companies/match?name=UNC-Chapel%20Hill
+  - description: Find by website url.
+    request: /companies/match?url=https://guardian.co.uk/
+  - description: Find by LinkedIn url.
+    request: /companies/match?linkedin=https://linkedin.com/company/157355
+  - description: Find by LinkedIn url.
+    request: /companies/match?linkedin=https://linkedin.com/company/gameloft
+  - description: Match Databricks and include the company_financials funding add-on.
+    request: /companies/match?linkedin=https://linkedin.com/company/databricks&enable=company_financials
+- operationId: getCompanyEmployeeMetrics
+  method: GET
+  path: /companies/{company_id}/employee-metrics
+  api: openapi/mixrank-companies-api-openapi.yml
+  tag: Companies
+  title: Companies » Employee Summary Metrics
+  examples:
+  - description: OpenAI employee counts related to Academic Qualification.
+    request: /companies/91408393/employee-metrics?job_tags=10029
+  - description: OpenAI employee counts with Part-Time and High School tags.
+    request: /companies/91408393/employee-metrics?job_tags=813,26
+- operationId: getCompanyEmployeeMetricsTimeseries
+  method: GET
+  path: /companies/{company_id}/employee-metrics/{job_tag_id}/timeseries
+  api: openapi/mixrank-companies-api-openapi.yml
+  tag: Companies
+  title: Companies » Employee Trends
+  examples:
+  - description: OpenAI employee trends related to High School.
+    request: /companies/91408393/employee-metrics/813/timeseries
+  - description: The same trends, but only showing data from 1st March 2020 to the present.
+    request: /companies/91408393/employee-metrics/813/timeseries?since=2020-03-01
+- operationId: getCompanyTimeseries
+  method: GET
+  path: /companies/{company_id}/timeseries
+  api: openapi/mixrank-companies-api-openapi.yml
+  tag: Companies
+  title: Companies » Trends
+  examples:
+  - description: Google
+    request: /companies/81760867/timeseries
+  - description: Google from 2020-03-19 to present
+    request: /companies/81760867/timeseries?since=2020-03-19
+  - description: Latest 50 records for Google
+    request: /companies/81760867/timeseries?page_size=50
+  - description: Latest 50, skipping 150 records for Google
+    request: /companies/81760867/timeseries?page_size=50&offset=150
+- operationId: listJobTags
+  method: GET
+  path: /jobtags
+  api: openapi/mixrank-companies-api-openapi.yml
+  tag: Companies
+  title: Companies » Job Tags
+  examples:
+  - description: Returns all the valid job tags.
+    request: /jobtags
+  - description: Returns the Full-time and High School job tags.
+    request: /jobtags?tag_ids=813,22
+- operationId: previewCompanySegment
+  method: GET
+  path: /companies/segment-preview
+  api: openapi/mixrank-companies-api-openapi.yml
+  tag: Companies
+  title: Companies » Company Segment Preview
+  examples:
+  - description: Endpoint to submit a POST boolean feature query, using the 'query' parameter.
+    request: /companies/segment-preview
+  - description: GET request to search for companies currently in the industry of IT Services and IT Consulting.
+    request: /companies/segment-preview?query=2533274790396000
+  - description: GET request to search for companies that in the past had company type as Self Employed
+      or Self Owned.
+    request: /companies/segment-preview?query=3940653968916485|3940653968916485
+  - description: GET request to search for companies whose headquarters location have ever been in Canada.
+    request: /companies/segment-preview?query=3659183287173137
+  - description: "GET request to search for companies currently with a number of employees in the range\
+      \ of\n            51-200 employees and whose past headquarters location was Italy."
+    request: /companies/segment-preview?query=4503599627370500,3659178992205929
+- operationId: queryCompanySegment
+  method: GET
+  path: /companies/segment-query
+  api: openapi/mixrank-companies-api-openapi.yml
+  tag: Companies
+  title: Companies » Company Segment Query
+  examples:
+  - description: Endpoint to submit a POST boolean feature query, using the 'query' parameter.
+    request: /companies/segment-query
+  - description: GET request to search for companies currently in the industry of IT Services and IT Consulting.
+    request: /companies/segment-query?query=2533274790396000
+  - description: GET request to search for companies that in the past had company type as Self Employed
+      or Self Owned.
+    request: /companies/segment-query?query=3940653968916485|3940653968916485
+  - description: GET request to search for companies whose headquarters location have ever been in Canada.
+    request: /companies/segment-query?query=3659183287173137
+  - description: "GET request to search for companies currently with a number of employees in the range\
+      \ of\n            51-200 employees and whose past headquarters location was Italy."
+    request: /companies/segment-query?query=4503599627370500,3659178992205929
+- operationId: prospectEmail
+  method: GET
+  path: /email/prospect
+  api: openapi/mixrank-email-api-openapi.yml
+  tag: Email
+  title: People » Get Prospect
+  examples:
+  - description: Get an email.
+    request: /email/prospect?full_name=Scott%20Milliken&domain=mixrank.com&limit=3
+  - description: Get an email.
+    request: /email/prospect?first_name=Bill&last_name=Gates&domain=gatesfoundation.org
+  - description: Get an email.
+    request: /email/prospect?person_id=20271379&limit=4
+  - description: Get an email.
+    request: /email/prospect?person_id=20271379&domain=deltaex.com
+  - description: Get an email, delivered to a webhook instead of waiting for it.
+    request: /email/prospect?person_id=20271379&webhook=https://example.com/hooks/prospect
+- operationId: previewPersonSegment
+  method: GET
+  path: /person/segment-preview
+  api: openapi/mixrank-people-api-openapi.yml
+  tag: People
+  title: People » Person Segment Preview
+  examples:
+  - description: GET request to search for people currently working at Microsoft.
+    request: /person/segment-preview?query=3096224825841206
+  - description: GET request to search for people that worked at Microsoft.
+    request: /person/segment-preview?query=3096229120808502
+  - description: GET request to search for people currently working at Microsoft or any Principal Data
+      Scientist.
+    request: /person/segment-preview?query=3096224825841206|3377699720544340
+- operationId: queryPersonSegment
+  method: GET
+  path: /person/segment-query
+  api: openapi/mixrank-people-api-openapi.yml
+  tag: People
+  title: People » Person Segment Query
+  examples:
+  - description: GET request to search for people currently working at Microsoft.
+    request: /person/segment-query?query=3096224825841206
+  - description: Get request to search for people that worked at Microsoft.
+    request: /person/segment-query?query=3096229120808502
+  - description: GET request to search for people currently working at Microsoft or any Principal Data
+      Scientist.
+    request: /person/segment-query?query=3096224825841206|3377699720544340
+- operationId: validateEmail
+  method: GET
+  path: /email/validate
+  api: openapi/mixrank-email-api-openapi.yml
+  tag: Email
+  title: Email » Validate
+  examples:
+  - description: Validate an email, ignore cache.
+    request: /email/validate?email=support@mixrank.com&strategy=fetch
+  - description: Validate an email if the cached entry is older than 1 hour.
+    request: /email/validate?email=invalid@mixrank.com&strategy=strict&maxage=3600
+  - description: Validate an email if there is no cached entry.
+    request: /email/validate?email=support@mixrank.com&strategy=strict
+  - description: Get cached validation if it is not older than 1 minute.
+    request: /email/validate?email=invalid@mixrank.com&strategy=cached&maxage=60
+- operationId: createEmailBulkJob
+  method: POST
+  path: /email/validate/bulk-job
+  api: openapi/mixrank-email-api-openapi.yml
+  tag: Email
+  title: Email » Submit Job
+  examples:
+  - description: Submit a list of email addresses.
+    request: /email/validate/bulk-job
+- operationId: listSegmentFeatures
+  method: GET
+  path: /segment-features/{segment}
+  api: openapi/mixrank-audience-segments-api-openapi.yml
+  tag: Audience Segments
+  title: Audience Segments » Features
+  examples:
+  - description: Feature IDs to search for people who are working or worked at Microsoft.
+    request: /segment-features/persons?type=company&search=Microsoft
+  - description: Feature IDs to search for people who are currently working at Microsoft.
+    request: /segment-features/persons?type=company&search=Microsoft&modifiers=present
+  - description: Feature IDs to search for people who worked at Microsoft.
+    request: /segment-features/persons?type=company&search=Microsoft&modifiers=past
+  - description: "Feature IDs to search for people who are working or worked for a company\n         \
+      \   whose name matches both \"Microsoft\" and \"Excel\"."
+    request: /segment-features/persons?type=company&search=Microsoft AND Excel
+  - description: "Feature IDs to search for people who are working or worked for a company\n         \
+      \   whose name matches \"Microsoft\" or \"Excel\"."
+    request: /segment-features/persons?type=company&search=Microsoft OR Excel
+  - description: "Feature IDs to search for people who are working or worked for a company\n         \
+      \   with ID equal to 82023958 (\"Xerox\" company)."
+    request: /segment-features/persons?type=company&company_id=82023958
+  - description: "Feature ID to search for people who worked for a company with ID\n               equal\
+      \ to 89826092 (\"Prime Acceptance Corp\" company)."
+    request: /segment-features/persons?type=company&company_id=89826092&modifiers=past
+  - description: "Extended feature IDs (50 features) to search for people currently\n            working\
+      \ on compensation related areas."
+    request: /segment-features/persons?type=job_title&search=compensation&modifiers=present&expand_search=t&limit=50
+  - description: Feature IDs to search for people currently in Computer and Game related industries.
+    request: /segment-features/persons?type=industry&search=Computer AND Games&modifiers=present
+  - description: "Feature IDs to search for people who currently are in the defense or food\n        \
+      \       related Industries."
+    request: /segment-features/persons?type=industry&search=defense OR food&modifiers=present
+  - description: "Feature IDs to search for people whose current country location are United States or\
+      \ Andorra.\n               Note: Three character ISO search for Andorra (AND) is not supported."
+    request: /segment-features/persons?type=country&search=AD or USA
+  - description: Feature IDs to search for people whose current country location is United States or Brazil.
+    request: /segment-features/persons?type=country&search=brazil or USA&modifiers=present
+  - description: Feature IDs to search for people who are working for "Prompt Recruitment"
+    request: /segment-features/persons?type=company&url=https://www.prompt-recruit.co.uk&modifiers=present
+  - description: Feature IDs to search for people who worked at "Microsoft".
+    request: /segment-features/persons?type=company&url=www.microsoft.com/es-co/&modifiers=past
+  - description: Feature IDs to search for people who are working in a company classified as Government
+      Agency.
+    request: /segment-features/persons?type=company_type&search=Government Agency&modifiers=present
+  - description: Feature IDs to search for people who have a Native or bilingual proficiency in English.
+    request: /segment-features/persons?type=language_prof&search=English&modifiers=NBP
+  - description: Feature IDs to search for people who had purchasing job_function tag in previous positions.
+    request: /segment-features/persons?type=job_title_tag&tag_type=job_function&search=Purchasing&modifiers=past
+  - description: Feature IDs to search for people who curretly have director's job_seniority tag.
+    request: /segment-features/persons?type=job_title_tag&tag_type=job_seniority&search=director&modifiers=present
+  - description: Feature IDs to search for people who have ever attended Harvard University using linkedin_url.
+    request: /segment-features/persons?type=linkedin_school&linkedin_url=https://www.linkedin.com/school/harvard-university
+  - description: Feature IDs to search for people who have ever attended Harvard University using domain.
+    request: /segment-features/persons?type=linkedin_school&url=https://www.harvard.edu
+  - description: Feature IDs to search for people who have ever attended Harvard University using key
+      words.
+    request: /segment-features/persons?type=linkedin_school&search=harvard
+  - description: "Feature IDs to search for companies who have been in industries\n            related\
+      \ with IT Services."
+    request: /segment-features/companies?type=industry&search=IT Services
+  - description: "Feature IDs to search for companies currently in an industry related with\n        \
+      \    IT Services."
+    request: /segment-features/companies?type=industry&search=IT Services&modifiers=present
+  - description: "Feature IDs to search for companies who in the past were in an industry\n          \
+      \  related with"
+    request: /segment-features/companies?type=industry&search=IT Services&modifiers=past
+  - description: "Feature IDs to search for companies who have been in an industry related with\n    \
+      \        IT Services and IT Consulting."
+    request: /segment-features/companies?type=industry&search=IT Services AND IT Consulting
+  - description: "Feature IDs to search for companies who have been in an industry related with\n    \
+      \        IT Services or Software Development."
+    request: /segment-features/companies?type=industry&search=IT Services OR Software Development
+  - description: Feature ID to search for companies currently classified as "Privately Held".
+    request: /segment-features/companies?type=company_type&code=P&modifiers=present
+  - description: Feature ID to search for companies whose past headquarters location was Argentina
+    request: /segment-features/companies?type=country&search=AR&modifiers=past
+  - description: Feature ID to search for companies whose headquarters are currently located in India.
+    request: /segment-features/companies?type=country&search=India&modifiers=present
+  - description: "Feature ID to search for companies who currently have a number of\n            employees\
+      \ in the"
+    request: /segment-features/companies?type=employee_size&code=F&modifiers=present
+- operationId: getSegmentResult
+  method: GET
+  path: /segment-result
+  api: openapi/mixrank-audience-segments-api-openapi.yml
+  tag: Audience Segments
+  title: Audience Segments » Segment Result
+  examples:
+  - description: "Download a potentially large result file with all person IDs that matched the segment\
+      \ query.\n            Use the token provided by the endpoint in the section Person\n           \
+      \ Segment Query\". The token in this example is for demonstrative purposes."
+    request: /segment-result?token=a2e1f8c3d7b9e2d6f1e8b0a5c2d3f4b6
+- operationId: getAppstoreIpa
+  method: GET
+  path: /appstore/ipa/{ipa_id}
+  api: openapi/mixrank-ios-apps-api-openapi.yml
+  tag: iOS Apps
+  title: iOS Apps » IPA
+  examples:
+  - description: Download URL for IPA - 871027104.
+    request: /appstore/ipa/871027104
+- operationId: listAppstoreApps
+  method: GET
+  path: /appstore/apps
+  api: openapi/mixrank-ios-apps-api-openapi.yml
+  tag: iOS Apps
+  title: iOS Apps » Directory
+  examples:
+  - description: Top 4 apps by ratings.
+    request: /appstore/apps?page_size=4&sort_field=rating_count
+  - description: The oldest apps in the appstore.
+    request: /appstore/apps?page_size=4&sort_field=id&sort_order=asc
+  - description: iOS apps released by Supercell.
+    request: /appstore/apps?company.id=82018021
+  - description: Search for apps matching "zombies".
+    request: /appstore/apps?search=zombies
+- operationId: getAppstoreApp
+  method: GET
+  path: /appstore/apps/{app_id}
+  api: openapi/mixrank-ios-apps-api-openapi.yml
+  tag: iOS Apps
+  title: iOS Apps » Overview
+  examples:
+  - description: Summary information for Facebook.
+    request: /appstore/apps/284882215
+  - description: Summary information for Pandora.
+    request: /appstore/apps/com.pandora
+- operationId: getAppstoreAppRankings
+  method: GET
+  path: /appstore/apps/{app_id}/rankings
+  api: openapi/mixrank-ios-apps-api-openapi.yml
+  tag: iOS Apps
+  title: iOS Apps » Rankings Summary
+  examples:
+  - description: Rankings for Starbucks.
+    request: /appstore/apps/331177714/rankings
+  - description: Rankings for Starbucks.
+    request: /appstore/apps/com.starbucks.mystarbucks/rankings
+- operationId: getAppstoreAppRankingsHistory
+  method: GET
+  path: /appstore/apps/{app_id}/rankings-history
+  api: openapi/mixrank-ios-apps-api-openapi.yml
+  tag: iOS Apps
+  title: iOS Apps » Rankings History
+  examples:
+  - description: Rankings history for Shazam in the "Top Free Applications" list in the US.
+    request: /appstore/apps/284993459/rankings-history?container=topfreeapplications&genre=ios&country=us
+  - description: Rankings history for "Clash of Clans" in the "Top Free Applications" list in the US.
+    request: /appstore/apps/com.supercell.magic/rankings-history?container=topfreeapplications&genre=ios&country=us
+- operationId: getAppstoreAppSdks
+  method: GET
+  path: /appstore/apps/{app_id}/sdks
+  api: openapi/mixrank-ios-apps-api-openapi.yml
+  tag: iOS Apps
+  title: iOS Apps » SDKs
+  examples:
+  - description: SDKs installed in Instagram.
+    request: /appstore/apps/389801252/sdks
+  - description: SDKs installed in "Clash of Clans".
+    request: /appstore/apps/com.supercell.magic/sdks
+- operationId: getAppstoreAppConfigs
+  method: GET
+  path: /appstore/apps/{app_id}/configs
+  api: openapi/mixrank-ios-apps-api-openapi.yml
+  tag: iOS Apps
+  title: iOS Apps » Configs
+  examples:
+  - description: Get the config options for Words With Friends.
+    request: /appstore/apps/321916506/configs
+  - description: Get the config options for Words With Friends.
+    request: /appstore/apps/com.newtoyinc.WordsWithFriendsFree/configs
+- operationId: getAppstoreAppVersions
+  method: GET
+  path: /appstore/apps/{app_id}/versions
+  api: openapi/mixrank-ios-apps-api-openapi.yml
+  tag: iOS Apps
+  title: iOS Apps » Versions
+  examples:
+  - description: Versions of Pinterest app.
+    request: /appstore/apps/429047995/versions
+  - description: Versions of "Clash of Clans" app.
+    request: /appstore/apps/com.supercell.magic/versions
+- operationId: getAppstoreAppIaps
+  method: GET
+  path: /appstore/apps/{app_id}/iaps
+  api: openapi/mixrank-ios-apps-api-openapi.yml
+  tag: iOS Apps
+  title: iOS Apps » In-App Purchases
+  examples:
+  - description: In-app purchases offered by "Minecraft".
+    request: /appstore/apps/479516143/iaps
+  - description: In-app purchases offered by "Minecraft".
+    request: /appstore/apps/com.mojang.minecraftpe/iaps
+- operationId: getAppstoreAppReviews
+  method: GET
+  path: /appstore/apps/{app_id}/reviews
+  api: openapi/mixrank-ios-apps-api-openapi.yml
+  tag: iOS Apps
+  title: iOS Apps » Reviews
+  examples:
+  - description: Reviews of "Minecraft".
+    request: /appstore/apps/479516143/reviews
+  - description: Reviews of "Minecraft".
+    request: /appstore/apps/com.mojang.minecraftpe/reviews
+- operationId: getAppstoreAppDownloads
+  method: GET
+  path: /appstore/apps/{app_id}/downloads
+  api: openapi/mixrank-ios-apps-api-openapi.yml
+  tag: iOS Apps
+  title: iOS Apps » Downloads
+  examples:
+  - description: Downloads trend for "Clash of Clans".
+    request: /appstore/apps/529479190/downloads
+  - description: Downloads trend for "Clash of Clans".
+    request: /appstore/apps/com.supercell.magic/downloads
+  - description: Downloads trend for "Clash of Clans" for the last 3 months
+    request: /appstore/apps/com.supercell.magic/downloads?interval=3 month
+  - description: Downloads trend for "Clash of Clans" for the last 3 months for US only.
+    request: /appstore/apps/com.supercell.magic/downloads?interval=3 month&country=us
+  - description: Downloads trend for "Clash of Clans" for the period between 6 months ago and 3 months
+      ago.
+    request: /appstore/apps/com.supercell.magic/downloads?interval=3 month&offset=3
+- operationId: getAppstoreAppRevenue
+  method: GET
+  path: /appstore/apps/{app_id}/revenue
+  api: openapi/mixrank-ios-apps-api-openapi.yml
+  tag: iOS Apps
+  title: iOS Apps » Revenue
+  examples:
+  - description: Revenue trend for "Clash of Clans".
+    request: /appstore/apps/529479190/revenue
+  - description: Revenue trend for "Clash of Clans".
+    request: /appstore/apps/com.supercell.magic/revenue
+  - description: Revenue trend for "Clash of Clans" for the last 3 months
+    request: /appstore/apps/com.supercell.magic/revenue?interval=3 month
+  - description: Revenue trend for "Clash of Clans" for the last 3 months for US only
+    request: /appstore/apps/com.supercell.magic/revenue?interval=3 month
+  - description: Revenue trend for "Clash of Clans" for the period between 6 months ago and 3 months ago.
+    request: /appstore/apps/com.supercell.magic/revenue?interval=3 month&offset=3
+- operationId: getAppstoreDeveloperApps
+  method: GET
+  path: /appstore/developers/{developer_id}/apps
+  api: openapi/mixrank-ios-developers-api-openapi.yml
+  tag: iOS Developers
+  title: iOS Developers » Apps
+  examples:
+  - description: Get the apps developed by OMGPOP.
+    request: /appstore/developers/422679887/apps
+- operationId: listAppstorePrivacyLabels
+  method: GET
+  path: /appstore/privacy/labels
+  api: openapi/mixrank-ios-app-privacy-api-openapi.yml
+  tag: iOS App Privacy
+  title: iOS App Privacy » Privacy labels
+  examples:
+  - description: Get all possible App store privacy labels.
+    request: /appstore/privacy/labels
+- operationId: listAppstorePrivacyDataTypes
+  method: GET
+  path: /appstore/privacy/datatype
+  api: openapi/mixrank-ios-app-privacy-api-openapi.yml
+  tag: iOS App Privacy
+  title: iOS App Privacy » Privacy Data Types
+  examples:
+  - description: Get all possible App store privacy data types with categories.
+    request: /appstore/privacy/datatype
+- operationId: listAppstorePrivacyLinkage
+  method: GET
+  path: /appstore/privacy/linkage
+  api: openapi/mixrank-ios-app-privacy-api-openapi.yml
+  tag: iOS App Privacy
+  title: iOS App Privacy » Privacy Linkage Types
+  examples:
+  - description: Get all possible App store privacy types.
+    request: /appstore/privacy/linkage
+- operationId: listAppstorePrivacyPurpose
+  method: GET
+  path: /appstore/privacy/purpose
+  api: openapi/mixrank-ios-app-privacy-api-openapi.yml
+  tag: iOS App Privacy
+  title: iOS App Privacy » Privacy Data Purposes
+  examples:
+  - description: Get all possible App store privacy data collection purposes.
+    request: /appstore/privacy/purpose
+- operationId: listAppstoreRankings
+  method: GET
+  path: /appstore/rankings
+  api: openapi/mixrank-ios-rankings-api-openapi.yml
+  tag: iOS Rankings
+  title: iOS Rankings » Lists
+  examples:
+  - description: Get all ranking lists.
+    request: /appstore/rankings
+- operationId: getAppstoreRankings
+  method: GET
+  path: /appstore/rankings/{container}/{genre}/{country}
+  api: openapi/mixrank-ios-rankings-api-openapi.yml
+  tag: iOS Rankings
+  title: iOS Rankings » Rankings
+  examples:
+  - description: Rankings of top free games.
+    request: /appstore/rankings/topfreeapplications/ios/us
+- operationId: listAppstoreSdks
+  method: GET
+  path: /appstore/sdks
+  api: openapi/mixrank-ios-sdks-api-openapi.yml
+  tag: iOS SDKs
+  title: iOS SDKs » Directory
+  examples:
+  - description: Top 10 SDKs by rank
+    request: /appstore/sdks?page_size=10
+  - description: Top 4 SDKs by all-time installs.
+    request: /appstore/sdks?sort_field=total_installs&page_size=4
+  - description: Top 4 SDKs by most uninstalls.
+    request: /appstore/sdks?sort_field=uninstalls&page_size=4
+- operationId: getAppstoreSdk
+  method: GET
+  path: /appstore/sdks/{sdk_slug}
+  api: openapi/mixrank-ios-sdks-api-openapi.yml
+  tag: iOS SDKs
+  title: iOS SDKs » Overview
+  examples:
+  - description: Get information about the Facebook SDK.
+    request: /appstore/sdks/facebook
+- operationId: getAppstoreSdkInstalls
+  method: GET
+  path: /appstore/sdks/{sdk_slug}/installs
+  api: openapi/mixrank-ios-sdks-api-openapi.yml
+  tag: iOS SDKs
+  title: iOS SDKs » Installs
+  examples:
+  - description: Top 10 apps that have installed the Flurry SDK.
+    request: /appstore/sdks/flurry/installs?page_size=10
+  - description: Top 10 apps that have installed the Google Analytics SDK.
+    request: /appstore/sdks/google-analytics/installs?page_size=10
+- operationId: getAppstoreSdkInstallTrend
+  method: GET
+  path: /appstore/sdks/{sdk_slug}/install-trend
+  api: openapi/mixrank-ios-sdks-api-openapi.yml
+  tag: iOS SDKs
+  title: iOS SDKs » Install trend
+  examples:
+  - description: Historical count of apps that have installed the Admob SDK.
+    request: /appstore/sdks/admob/install-trend
+- operationId: getAppstoreSdkUninstalls
+  method: GET
+  path: /appstore/sdks/{sdk_slug}/uninstalls
+  api: openapi/mixrank-ios-sdks-api-openapi.yml
+  tag: iOS SDKs
+  title: iOS SDKs » Uninstalls
+  examples:
+  - description: Top 10 apps that have uninstalled the Flurry SDK.
+    request: /appstore/sdks/flurry/uninstalls?page_size=10
+  - description: Top 10 apps by number of ratings that have uninstalled the OAuth SDK.
+    request: /appstore/sdks/oauth/uninstalls?page_size=10&sort_field=rating_count
+- operationId: getAppstoreSdkGenres
+  method: GET
+  path: /appstore/sdks/{sdk_slug}/genres
+  api: openapi/mixrank-ios-sdks-api-openapi.yml
+  tag: iOS SDKs
+  title: iOS SDKs » Genres
+  examples:
+  - description: Get genre stats for apps that have installed InMobi.
+    request: /appstore/sdks/inmobi/genres
+  - description: Get genre stats for apps that have installed Flurry.
+    request: /appstore/sdks/flurry/genres
+- operationId: getAppstoreSdkVersions
+  method: GET
+  path: /appstore/sdks/{sdk_slug}/versions
+  api: openapi/mixrank-ios-sdks-api-openapi.yml
+  tag: iOS SDKs
+  title: iOS SDKs » Versions
+  examples:
+  - description: Get the version history for the InMobi SDK
+    request: /appstore/sdks/inmobi/versions
+  - description: Get the version history for the Flurry SDK
+    request: /appstore/sdks/flurry/versions
+- operationId: getPlaystoreApk
+  method: GET
+  path: /playstore/apks/{package_name}/{version_id}
+  api: openapi/mixrank-play-store-apps-api-openapi.yml
+  tag: Play Store Apps
+  title: Play Store Apps » APK
+  examples:
+  - description: Generate a Download URL for APK - com.microsoft.bing.
+    request: /playstore/apks/com.microsoft.bing/421106038
+- operationId: listPlaystoreApps
+  method: GET
+  path: /playstore/apps
+  api: openapi/mixrank-play-store-apps-api-openapi.yml
+  tag: Play Store Apps
+  title: Play Store Apps » Directory
+  examples:
+  - description: Top 4 apps by downloads.
+    request: /playstore/apps?page_size=4&sort_field=downloads
+  - description: Top 4 apps by ratings.
+    request: /playstore/apps?page_size=4&sort_field=rating_count
+  - description: Apps by OMGPOP
+    request: /playstore/apps?company.id=81976622
+  - description: Search for apps matching "messenger".
+    request: /playstore/apps?search=messenger
+- operationId: getPlaystoreApp
+  method: GET
+  path: /playstore/apps/{pname}
+  api: openapi/mixrank-play-store-apps-api-openapi.yml
+  tag: Play Store Apps
+  title: Play Store Apps » Overview
+  examples:
+  - description: Summary information for Candy Crush.
+    request: /playstore/apps/com.king.candycrushsaga
+  - description: Summary information for TuneIn Radio.
+    request: /playstore/apps/tunein.player
+  - description: Summary information for WhatsApp.
+    request: /playstore/apps/com.whatsapp
+- operationId: getPlaystoreAppImages
+  method: GET
+  path: /playstore/apps/{pname}/images
+  api: openapi/mixrank-play-store-apps-api-openapi.yml
+  tag: Play Store Apps
+  title: Play Store Apps » Images
+  examples:
+  - description: Requests all image and video assets for Candy Crush.
+    request: /playstore/apps/com.king.candycrushsaga/images
+  - description: Requests all image and video assets for Clash of Clans.
+    request: /playstore/apps/com.supercell.clashofclans/images
+- operationId: getPlaystoreAppRankings
+  method: GET
+  path: /playstore/apps/{pname}/rankings
+  api: openapi/mixrank-play-store-apps-api-openapi.yml
+  tag: Play Store Apps
+  title: Play Store Apps » Rankings Summary
+  examples:
+  - description: Rankings for Deer Hunter 2014.
+    request: /playstore/apps/com.glu.deerhunt2/rankings
+  - description: Rankings for WolframAlpha.
+    request: /playstore/apps/com.wolfram.android.alpha/rankings
+- operationId: getPlaystoreAppRankingsHistory
+  method: GET
+  path: /playstore/apps/{pname}/rankings-history
+  api: openapi/mixrank-play-store-apps-api-openapi.yml
+  tag: Play Store Apps
+  title: Play Store Apps » Rankings History
+  examples:
+  - description: Rankings for Netflix in Top Grossing.
+    request: /playstore/apps/com.netflix.mediaclient/rankings-history?container=apps_topgrossing
+  - description: Rankings for Netflix in Top Grossing before 2017.
+    request: /playstore/apps/com.netflix.mediaclient/rankings-history?container=apps_topgrossing&before=2017-01-01
+  - description: Rankings for Amazon in Top Grossing for Germany.
+    request: playstore/apps/com.amazon.mShop.android.shopping/rankings-history?container=apps_topgrossing&country=DE
+- operationId: getPlaystoreAppSdks
+  method: GET
+  path: /playstore/apps/{pname}/sdks
+  api: openapi/mixrank-play-store-apps-api-openapi.yml
+  tag: Play Store Apps
+  title: Play Store Apps » SDKs
+  examples:
+  - description: SDKs installed in Pocket Bingo.
+    request: /playstore/apps/com.apostek.apps.pocketbingo/sdks?page_size=10
+  - description: SDKs installed in Shazam.
+    request: /playstore/apps/com.shazam.android/sdks?page_size=10
+- operationId: getPlaystoreAppNamespaces
+  method: GET
+  path: /playstore/apps/{pname}/namespaces
+  api: openapi/mixrank-play-store-apps-api-openapi.yml
+  tag: Play Store Apps
+  title: Play Store Apps » Namespaces
+  examples:
+  - description: Get the namespaces in PicsArt.
+    request: /playstore/apps/com.picsart.studio/namespaces
+  - description: Get the namespaces in Instagram.
+    request: /playstore/apps/com.instagram.android/namespaces
+- operationId: getPlaystoreAppVersions
+  method: GET
+  path: /playstore/apps/{pname}/versions
+  api: openapi/mixrank-play-store-apps-api-openapi.yml
+  tag: Play Store Apps
+  title: Play Store Apps » Versions
+  examples:
+  - description: Versions of Viber.
+    request: /playstore/apps/com.viber.voip/versions?page_size=10
+- operationId: getPlaystoreAppVersionApks
+  method: GET
+  path: /playstore/apps/{pname}/versions/{version_code}/apks
+  api: openapi/mixrank-play-store-apps-api-openapi.yml
+  tag: Play Store Apps
+  title: Play Store Apps » APKs
+  examples:
+  - description: Viber version 640581.
+    request: /playstore/apps/com.viber.voip/versions/640581/apks
+- operationId: getPlaystoreDeveloperApps
+  method: GET
+  path: /playstore/developers/{developer_id}/apps
+  api: openapi/mixrank-play-store-developers-api-openapi.yml
+  tag: Play Store Developers
+  title: Play Store Developers » Apps
+  examples:
+  - description: Get the apps developed by Rovio Mobile Ltd.
+    request: /playstore/developers/358123/apps
+- operationId: listPlaystoreRankings
+  method: GET
+  path: /playstore/rankings
+  api: openapi/mixrank-play-store-rankings-api-openapi.yml
+  tag: Play Store Rankings
+  title: Play Store Rankings » Lists
+  examples:
+  - description: Get all ranking lists.
+    request: /playstore/rankings
+- operationId: getPlaystoreRankings
+  method: GET
+  path: /playstore/rankings/{container}/{category}/{country}
+  api: openapi/mixrank-play-store-rankings-api-openapi.yml
+  tag: Play Store Rankings
+  title: Play Store Rankings » Rankings
+  examples:
+  - description: Rankings of top selling apps in US.
+    request: /playstore/rankings/apps_topselling_free/null/US
+  - description: Rankings of top selling paid photography apps in France as of Dec 01 2021.
+    request: /playstore/rankings/apps_topselling_paid/photography/FR?before=2021-12-01
+  - description: Rankings of top grossing arcade games in Taiwan.
+    request: /playstore/rankings/apps_topgrossing/game_arcade/TW
+- operationId: listPlaystoreSdks
+  method: GET
+  path: /playstore/sdks
+  api: openapi/mixrank-play-store-sdks-api-openapi.yml
+  tag: Play Store SDKs
+  title: Play Store SDKs » Directory
+  examples:
+  - description: Top 10 SDKs by rank.
+    request: /playstore/sdks?page_size=10
+  - description: Top 4 SDKs by all-time installs.
+    request: /playstore/sdks?sort_field=total_installs&page_size=4
+  - description: Top 4 SDKs by most uninstalls.
+    request: /playstore/sdks?sort_field=uninstalls&page_size=4
+- operationId: getPlaystoreSdk
+  method: GET
+  path: /playstore/sdks/{sdk_slug}
+  api: openapi/mixrank-play-store-sdks-api-openapi.yml
+  tag: Play Store SDKs
+  title: Play Store SDKs » Overview
+  examples:
+  - description: Get information about the Square SDK.
+    request: /playstore/sdks/square
+  - description: Get information about the StartApp SDK.
+    request: /playstore/sdks/startapp
+- operationId: getPlaystoreSdkInstalls
+  method: GET
+  path: /playstore/sdks/{sdk_slug}/installs
+  api: openapi/mixrank-play-store-sdks-api-openapi.yml
+  tag: Play Store SDKs
+  title: Play Store SDKs » Installs
+  examples:
+  - description: Top 10 apps that have installed the PayPal SDK.
+    request: /playstore/sdks/paypal/installs?page_size=10
+  - description: Top 10 apps that have installed the Google Analytics SDK.
+    request: /playstore/sdks/google-analytics/installs?page_size=10
+- operationId: getPlaystoreSdkInstallTrend
+  method: GET
+  path: /playstore/sdks/{sdk_slug}/install-trend
+  api: openapi/mixrank-play-store-sdks-api-openapi.yml
+  tag: Play Store SDKs
+  title: Play Store SDKs » Install trend
+  examples:
+  - description: Historical count of apps that have installed the Firebase SDK.
+    request: /playstore/sdks/firebase/install-trend
+- operationId: getPlaystoreSdkUninstalls
+  method: GET
+  path: /playstore/sdks/{sdk_slug}/uninstalls
+  api: openapi/mixrank-play-store-sdks-api-openapi.yml
+  tag: Play Store SDKs
+  title: Play Store SDKs » Uninstalls
+  examples:
+  - description: Top 10 apps that have uninstalled the Flurry SDK.
+    request: /playstore/sdks/flurry/uninstalls?page_size=10
+  - description: Top 10 apps by number of ratings that have uninstalled Millennial Media.
+    request: /playstore/sdks/millennial-media/uninstalls?page_size=10&sort_field=rating_count
+- operationId: getPlaystoreSdkCategories
+  method: GET
+  path: /playstore/sdks/{sdk_slug}/categories
+  api: openapi/mixrank-play-store-sdks-api-openapi.yml
+  tag: Play Store SDKs
+  title: Play Store SDKs » Categories
+  examples:
+  - description: Get category stats for apps that have installed InMobi.
+    request: /playstore/sdks/inmobi/categories
+  - description: Get category stats for apps that have installed Flurry.
+    request: /playstore/sdks/flurry/categories
+- operationId: getPlaystoreSdkDownloads
+  method: GET
+  path: /playstore/sdks/{sdk_slug}/downloads
+  api: openapi/mixrank-play-store-sdks-api-openapi.yml
+  tag: Play Store SDKs
+  title: Play Store SDKs » Downloads
+  examples:
+  - description: Get download stats for apps that have installed the Facebook SDK.
+    request: /playstore/sdks/facebook/downloads
+  - description: Get download stats for apps that have installed the In-app purchases SDK.
+    request: /playstore/sdks/google-play-in-app-billing/downloads
+- operationId: listWebSites
+  method: GET
+  path: /web/sites
+  api: openapi/mixrank-websites-api-openapi.yml
+  tag: Websites
+  title: Websites » Directory
+  examples:
+  - description: Websites by Barns and Noble
+    request: /web/sites?company.id=81765662
+  - description: Search for websites matching "chocolate".
+    request: /web/sites?search=chocolate
+- operationId: getWebSite
+  method: GET
+  path: /web/sites/{domain}
+  api: openapi/mixrank-websites-api-openapi.yml
+  tag: Websites
+  title: Websites » Overview
+  examples:
+  - description: Summary information for google.com.
+    request: /web/sites/google.com
+- operationId: getWebSiteTags
+  method: GET
+  path: /web/sites/{domain}/tags
+  api: openapi/mixrank-websites-api-openapi.yml
+  tag: Websites
+  title: Websites » Tags
+  examples:
+  - description: Tags found on Toys R Us.
+    request: /web/sites/toysrus.com/tags
+- operationId: listWebTags
+  method: GET
+  path: /web/tags
+  api: openapi/mixrank-web-tags-api-openapi.yml
+  tag: Web Tags
+  title: Web Tags » Directory
+  examples:
+  - description: Top 10 Web Tags by rank.
+    request: /web/tags?page_size=10
+  - description: Top 4 Web Tags by most number of websites with this tag
+    request: /web/tags?sort_field=domain_count&page_size=4
+  - description: Top 4 Web Tags by most number of times seen
+    request: /web/tags?sort_field=times_seen&page_size=4
+- operationId: getWebTag
+  method: GET
+  path: /web/tags/{slug}
+  api: openapi/mixrank-web-tags-api-openapi.yml
+  tag: Web Tags
+  title: Web Tags » Overview
+  examples:
+  - description: Summary information for Criteo tag.
+    request: /web/tags/adroll
+- operationId: getWebTagSites
+  method: GET
+  path: /web/tags/{slug}/sites
+  api: openapi/mixrank-web-tags-api-openapi.yml
+  tag: Web Tags
+  title: Web Tags » Sites
+  examples:
+  - description: Websites that use Adroll.
+    request: /web/tags/adroll/sites

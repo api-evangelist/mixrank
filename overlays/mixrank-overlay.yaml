@@ -27,3 +27,51 @@ actions:
     x-async-jobs:
       pattern: job
       resources: [email/validate/bulk-job, companies/segment-query, person/segment-query]
+- target: $.info
+  update:
+    x-examples: examples/mixrank-examples.yml
+    x-webhooks: asyncapi/mixrank-webhooks.yml
+    x-packages: packages/mixrank-packages.yml
+    x-well-known: well-known/mixrank-well-known.yml
+    x-webhook-callbacks:
+      standard: Standard Webhooks
+      parameter: webhook
+      operations: [prospectEmail, validateEmail]
+      acknowledgement_status: 202
+      signature_header: Webhook-Signature
+      note: >-
+        Documented at https://mixrank.com/api/documentation but absent from the
+        harvested spec. Captured as an overlay enhancement rather than written
+        into the OpenAPI, which stays as harvested.
+- target: $.paths['/email/prospect'].get.parameters
+  description: >-
+    MixRank documents a `webhook` query parameter on this operation that the
+    harvested spec omits; supplying it makes the call asynchronous.
+  update:
+    name: webhook
+    in: query
+    required: false
+    schema:
+      type: string
+      format: uri
+    description: >-
+      An https url to deliver the result to. Given one, the request is accepted
+      with a 202 and a body of {"id": ..., "status": "accepted"} instead of
+      waiting for the prospecting. The result is POSTed to this url as soon as
+      it is ready, as a Standard Webhooks delivery.
+- target: $.paths['/email/validate'].get.parameters
+  description: >-
+    MixRank documents a `webhook` query parameter on this operation that the
+    harvested spec omits; supplying it makes the call asynchronous.
+  update:
+    name: webhook
+    in: query
+    required: false
+    schema:
+      type: string
+      format: uri
+    description: >-
+      An https url to deliver the result to. Given one, the request is accepted
+      with a 202 and a body of {"id": ..., "status": "accepted"} instead of
+      waiting for the validation. The result is POSTed to this url as soon as it
+      is ready, as a Standard Webhooks delivery.

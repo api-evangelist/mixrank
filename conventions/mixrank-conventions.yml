@@ -1,4 +1,4 @@
-generated: '2026-07-20'
+generated: '2026-08-14'
 method: searched
 source: https://mixrank.com/api/documentation
 api: openapi/mixrank-openapi.yml
@@ -51,3 +51,39 @@ versioning:
   current: v2
   detail: Version is embedded in the base path (/v2/json/).
   ref: lifecycle/mixrank-lifecycle.yml
+webhooks:
+  supported: true
+  style: request-scoped callback
+  standard: Standard Webhooks
+  parameter: webhook
+  operations: [prospectEmail, validateEmail]
+  detail: >-
+    The long-running email operations accept a `webhook` query parameter holding
+    an https URL. Supplying one flips the call asynchronous: MixRank answers 202
+    with {"id": ..., "status": "accepted"} and POSTs the result to that URL when
+    ready. Deliveries follow Standard Webhooks — Webhook-Id, Webhook-Timestamp
+    and Webhook-Signature (v1,<base64 hmac-sha256 of "<id>.<timestamp>.<body>">,
+    keyed with your API key). Retried with backoff until the endpoint answers
+    2xx, abandoned after 10 attempts.
+  ref: asyncapi/mixrank-webhooks.yml
+caching:
+  supported: true
+  detail: >-
+    Email validation exposes an explicit freshness contract rather than HTTP
+    cache headers. `strategy` selects cached (cache only), fetch (ignore cache),
+    strict (cached if newer than `maxage` seconds, else fetch) or besteffort
+    (default: cached if newer than maxage, else fetch, falling back to the cached
+    result on failure). `maxage` is the acceptable age in seconds. Bulk jobs
+    report the `strategy` and `maxage` they ran under.
+  parameters: [strategy, maxage, timeout]
+privacy_controls:
+  parameter: private
+  detail: >-
+    Email validation and bulk jobs accept `private` — when true no log is kept of
+    the address validated, and a private bulk job's output can be deleted with
+    DELETE /email/validate/bulk-job/{job_id}.
+case_sensitivity:
+  detail: >-
+    Optional parameter names are case-sensitive. `Page_Size` is silently ignored
+    where `page_size` is honoured — a documented silent-failure trap worth
+    encoding into any client.

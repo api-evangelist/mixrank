@@ -1,0 +1,169 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "MixRank Data Account Play Store SDKs API",
+    "version": "2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Play Store SDKs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List/search the Play Store SDK directory",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mixrank.com/v2/json/{api_key}/playstore/sdks",
+            "params": [
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to skip"
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Results per page (varies by endpoint, typically 1-100)"
+              },
+              {
+                "name": "sort_field",
+                "value": "",
+                "type": "query",
+                "description": "Field to sort by"
+              },
+              {
+                "name": "sort_order",
+                "value": "",
+                "type": "query",
+                "description": "Sort direction"
+              }
+            ]
+          },
+          "docs": "List/search the Play Store SDK directory"
+        },
+        {
+          "info": {
+            "name": "Get Play Store SDK overview",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mixrank.com/v2/json/{api_key}/playstore/sdks/:sdk_slug",
+            "params": [
+              {
+                "name": "sdk_slug",
+                "value": "",
+                "type": "path",
+                "description": "sdk_slug identifier"
+              }
+            ]
+          },
+          "docs": "Get Play Store SDK overview"
+        },
+        {
+          "info": {
+            "name": "App installations for a Play Store SDK",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mixrank.com/v2/json/{api_key}/playstore/sdks/:sdk_slug/installs",
+            "params": [
+              {
+                "name": "sdk_slug",
+                "value": "",
+                "type": "path",
+                "description": "sdk_slug identifier"
+              }
+            ]
+          },
+          "docs": "App installations for a Play Store SDK"
+        },
+        {
+          "info": {
+            "name": "Install trend for a Play Store SDK",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mixrank.com/v2/json/{api_key}/playstore/sdks/:sdk_slug/install-trend",
+            "params": [
+              {
+                "name": "sdk_slug",
+                "value": "",
+                "type": "path",
+                "description": "sdk_slug identifier"
+              }
+            ]
+          },
+          "docs": "Install trend for a Play Store SDK"
+        },
+        {
+          "info": {
+            "name": "Uninstalls for a Play Store SDK",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mixrank.com/v2/json/{api_key}/playstore/sdks/:sdk_slug/uninstalls",
+            "params": [
+              {
+                "name": "sdk_slug",
+                "value": "",
+                "type": "path",
+                "description": "sdk_slug identifier"
+              }
+            ]
+          },
+          "docs": "Uninstalls for a Play Store SDK"
+        },
+        {
+          "info": {
+            "name": "Category distribution for a Play Store SDK",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mixrank.com/v2/json/{api_key}/playstore/sdks/:sdk_slug/categories",
+            "params": [
+              {
+                "name": "sdk_slug",
+                "value": "",
+                "type": "path",
+                "description": "sdk_slug identifier"
+              }
+            ]
+          },
+          "docs": "Category distribution for a Play Store SDK"
+        },
+        {
+          "info": {
+            "name": "Download data for a Play Store SDK",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mixrank.com/v2/json/{api_key}/playstore/sdks/:sdk_slug/downloads",
+            "params": [
+              {
+                "name": "sdk_slug",
+                "value": "",
+                "type": "path",
+                "description": "sdk_slug identifier"
+              }
+            ]
+          },
+          "docs": "Download data for a Play Store SDK"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

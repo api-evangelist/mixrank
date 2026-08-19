@@ -2,8 +2,8 @@ generated: '2026-07-20'
 method: derived
 status: candidate
 source: openapi/mixrank-openapi.yml
-note: No official hosted MCP server was found for MixRank. This is a CANDIDATE tool list derived from the documented REST
-  operations (one tool per operationId).
+note: No official hosted MCP server was found for MixRank. This is a CANDIDATE tool list derived from
+  the documented REST operations (one tool per operationId).
 server:
   name: mixrank
   transport: http
@@ -240,3 +240,38 @@ tools:
 - name: getWebTagSites
   description: Websites detected using a technology tag
   source_operation: openapi/mixrank-openapi.yml#getWebTagSites
+deployment:
+  mode: none
+  endpoint: null
+  install: null
+  package: null
+  auth: api-key
+  verified: probed
+  tools: 77
+  checked: '2026-08-14'
+  source: >-
+    Live probes plus a docs and registry search. MixRank ships neither a remote
+    MCP endpoint nor a stdio package: nothing an agent can reach, and nothing a
+    human can install. The tools[] list above remains a CANDIDATE derived from
+    the REST operations — never call it a MixRank agent surface. `auth: api-key`
+    describes what a real server would have to carry (MixRank's key is a URL path
+    segment), not an existing server.
+  probes:
+  - url: https://api.mixrank.com/mcp
+    method: POST tools/list
+    status: 404
+  - url: https://mixrank.com/mcp
+    method: POST tools/list
+    status: 404
+  - url: https://mcp.mixrank.com/mcp
+    method: DNS
+    status: NXDOMAIN
+  - url: https://api.mixrank.com/graphql
+    method: POST introspection
+    status: 404
+  - url: https://mixrank.com/graphql
+    method: POST introspection
+    status: 404
+  registries_searched:
+  - npm (@modelcontextprotocol and text search for mixrank) — 0 results
+  - PyPI — 0 results

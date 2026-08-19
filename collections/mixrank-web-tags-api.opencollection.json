@@ -1,0 +1,93 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "MixRank Data Account Web Tags API",
+    "version": "2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Web Tags",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List the web technology tag directory",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mixrank.com/v2/json/{api_key}/web/tags",
+            "params": [
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to skip"
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Results per page (varies by endpoint, typically 1-100)"
+              },
+              {
+                "name": "sort_field",
+                "value": "",
+                "type": "query",
+                "description": "Field to sort by"
+              },
+              {
+                "name": "sort_order",
+                "value": "",
+                "type": "query",
+                "description": "Sort direction"
+              }
+            ]
+          },
+          "docs": "List the web technology tag directory"
+        },
+        {
+          "info": {
+            "name": "Get web technology tag details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mixrank.com/v2/json/{api_key}/web/tags/:slug",
+            "params": [
+              {
+                "name": "slug",
+                "value": "",
+                "type": "path",
+                "description": "slug identifier"
+              }
+            ]
+          },
+          "docs": "Get web technology tag details"
+        },
+        {
+          "info": {
+            "name": "Websites detected using a technology tag",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mixrank.com/v2/json/{api_key}/web/tags/:slug/sites",
+            "params": [
+              {
+                "name": "slug",
+                "value": "",
+                "type": "path",
+                "description": "slug identifier"
+              }
+            ]
+          },
+          "docs": "Websites detected using a technology tag"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

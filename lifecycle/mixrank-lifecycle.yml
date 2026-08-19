@@ -22,4 +22,51 @@ sla:
     channels: [slack, email]
     response_target: 8 hours
 status_page: null
+status_page_note: >-
+  MixRank serves no public status page. https://mixrank.com/status exists but
+  302s to https://mixrank.com/login?redirect=/status (probed 2026-08-14), so any
+  service-health signal is customer-only. status.mixrank.com does not resolve
+  (NXDOMAIN). The Terms of Service say MixRank "will endeavor to inform the
+  Licensee ahead of scheduled service disruptions via the MixRank Platform
+  Service or by email" — notification is push-to-customer, not a public page.
+sla_note: >-
+  There is no published SLA document. The Terms of Service refer to an SLA only
+  conditionally ("In the presence of a Service Level Agreement"), meaning it is
+  negotiated per Order Form. The support-response targets below come from the
+  pricing page and are the only published service commitments.
 deprecated_operations: []
+absent_surfaces:
+  checked: '2026-08-14'
+  note: >-
+    Recorded so a later round does not re-litigate them. Each was probed, not
+    assumed.
+  findings:
+  - surface: changelog
+    present: false
+    evidence: https://mixrank.com/changelog returns 404; no dated release notes anywhere in the docs.
+  - surface: blog
+    present: false
+    evidence: >-
+      blog.mixrank.com returns 200 but is an untouched default ClassicPress
+      install whose only post is "Hello world!" from 2025-07-14; its /feed/ 404s
+      and mixrank.com/feed/ 404s. No Blog pointer is wired — a 200 is not a blog.
+  - surface: github organization
+    present: false
+    evidence: >-
+      github.com/mixrank returns 200 but the account has zero public
+      repositories, no bio and no link to mixrank.com, so it cannot be
+      attributed to the company. No GitHubOrganization pointer wired.
+  - surface: postman
+    present: false
+    evidence: >-
+      The Postman public network search returns a "MixRank" team with zero
+      public collections or workspaces.
+  - surface: vulnerability disclosure
+    present: false
+    evidence: >-
+      /.well-known/security.txt 404s on both hosts and no disclosure page
+      exists; the Terms of Service actively prohibit licensees from conducting
+      security or vulnerability tests on the platform.
+  - surface: roadmap
+    present: false
+    evidence: https://mixrank.com/roadmap returns 404.

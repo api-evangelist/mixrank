@@ -1,0 +1,60 @@
+generated: '2026-08-14'
+method: searched
+source: https://mixrank.com/api/documentation
+official_count: 0
+package_count: 1
+note: >-
+  MixRank ships NO first-party client libraries, and says so explicitly in its
+  own Getting Started section: "The API is simple to use with only an HTTP
+  client and a JSON parser, so there's no need for any client libraries." That
+  statement was confirmed against every registry below — npm, PyPI, RubyGems,
+  crates.io, Packagist and NuGet all return zero MixRank-published packages. The
+  only library found is a third-party abstraction layer whose last release
+  predates the current v2 API surface by more than a decade; it is recorded with
+  official:false as an accuracy signal, not as an SDK MixRank supports.
+registries_searched:
+- registry: npm
+  query: https://registry.npmjs.org/-/v1/search?text=mixrank
+  results: 0
+- registry: pypi
+  query: https://pypi.org/pypi/mixrank/json
+  results: 0
+- registry: rubygems
+  query: https://rubygems.org/api/v1/search.json?query=mixrank
+  results: 0
+- registry: crates.io
+  query: https://crates.io/api/v1/crates?q=mixrank
+  results: 0
+- registry: packagist
+  query: https://packagist.org/search.json?q=mixrank
+  results: 0
+- registry: nuget
+  query: https://azuresearch-usnc.nuget.org/query?q=mixrank
+  results: 0
+packages:
+- language: python
+  registry: pypi
+  name: libsaas
+  url: https://pypi.org/project/libsaas/
+  install: pip install libsaas
+  official: false
+  version: '0.4'
+  published: '2014-02-19'
+  note: >-
+    Third-party, not MixRank. `libsaas` is a generic abstraction library for SaaS
+    APIs that ships a MixRank binding
+    (https://libsaas.readthedocs.io/en/latest/generated/mixrank/). Its most
+    recent PyPI release is 0.4 from 2014-02-19 — it predates the current
+    /v2/json API by years and should not be treated as a maintained client.
+integrations:
+- name: dlt (data load tool) REST source
+  url: https://dlthub.com/context/source/mixrank
+  official: false
+  version: null
+  published: null
+  note: >-
+    A community/vendor-published pipeline template for MixRank built on dltHub's
+    generic REST connector. It is a code template distributed inside the `dlt`
+    package rather than a MixRank-specific published package, so there is no
+    registry entry of its own to version — recorded as null after checking,
+    not left unchecked.
