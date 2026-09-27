@@ -68,13 +68,6 @@ paths:
         '429':
           $ref: '#/components/responses/Error'
 components:
-  responses:
-    Error:
-      description: Error response with an errors array and an appropriate HTTP status code
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
   schemas:
     Error:
       type: object
@@ -84,6 +77,13 @@ components:
           items:
             type: string
           description: List of error messages
+  responses:
+    Error:
+      description: Error response with an errors array and an appropriate HTTP status code
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
 externalDocs:
   description: MixRank API documentation
   url: https://mixrank.com/api/documentation
