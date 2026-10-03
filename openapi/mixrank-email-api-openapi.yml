@@ -169,15 +169,13 @@ paths:
         '429':
           $ref: '#/components/responses/Error'
 components:
-  schemas:
+  responses:
     Error:
-      type: object
-      properties:
-        errors:
-          type: array
-          items:
-            type: string
-          description: List of error messages
+      description: Error response with an errors array and an appropriate HTTP status code
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   parameters:
     PageSize:
       name: page_size
@@ -211,13 +209,15 @@ components:
         - asc
         - desc
       description: Sort direction
-  responses:
+  schemas:
     Error:
-      description: Error response with an errors array and an appropriate HTTP status code
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            type: string
+          description: List of error messages
 externalDocs:
   description: MixRank API documentation
   url: https://mixrank.com/api/documentation
