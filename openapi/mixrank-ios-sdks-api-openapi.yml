@@ -213,21 +213,7 @@ paths:
           type: string
         description: sdk_slug identifier
 components:
-  responses:
-    Error:
-      description: Error response with an errors array and an appropriate HTTP status code
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
   parameters:
-    PageSize:
-      name: page_size
-      in: query
-      required: false
-      schema:
-        type: integer
-      description: Results per page (varies by endpoint, typically 1-100)
     Offset:
       name: offset
       in: query
@@ -236,6 +222,13 @@ components:
         type: integer
         default: 0
       description: Number of results to skip
+    PageSize:
+      name: page_size
+      in: query
+      required: false
+      schema:
+        type: integer
+      description: Results per page (varies by endpoint, typically 1-100)
     SortField:
       name: sort_field
       in: query
@@ -262,6 +255,13 @@ components:
           items:
             type: string
           description: List of error messages
+  responses:
+    Error:
+      description: Error response with an errors array and an appropriate HTTP status code
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
 externalDocs:
   description: MixRank API documentation
   url: https://mixrank.com/api/documentation
