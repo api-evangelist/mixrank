@@ -501,6 +501,9 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: CapabilityMap
+  url: capabilities/mixrank-capability-edges.yml
+  name: MixRank Business Capability Map
 - type: Overlay
   url: overlays/mixrank-overlay.yaml
 - type: DomainSecurity
