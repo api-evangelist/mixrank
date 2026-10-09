@@ -1,17 +1,23 @@
-generated: '2026-07-20'
+generated: '2026-09-23'
 method: generated
-source: openapi/mixrank-openapi.yml
+source: openapi/mixrank-account-api-openapi.yml, openapi/mixrank-audience-segments-api-openapi.yml,
+  openapi/mixrank-companies-api-openapi.yml, openapi/mixrank-email-api-openapi.yml, openapi/mixrank-ios-app-privacy-api-openapi.yml,
+  openapi/mixrank-ios-apps-api-openapi.yml, openapi/mixrank-ios-developers-api-openapi.yml,
+  openapi/mixrank-ios-rankings-api-openapi.yml, openapi/mixrank-ios-sdks-api-openapi.yml, openapi/mixrank-people-api-openapi.yml,
+  openapi/mixrank-play-store-apps-api-openapi.yml, openapi/mixrank-play-store-developers-api-openapi.yml,
+  openapi/mixrank-play-store-rankings-api-openapi.yml, openapi/mixrank-play-store-sdks-api-openapi.yml,
+  openapi/mixrank-web-tags-api-openapi.yml, openapi/mixrank-websites-api-openapi.yml
 description: Recommended x-agentic-access execution contracts, classified heuristically from
   the OpenAPI. A governance starting point for exposing this API to AI agents — review and bind
   audience per deployment. See research/curity/agentic-governance/.
 summary:
   operations: 77
   by_action_class:
-    connected: 71
-    acting: 6
+    connected: 73
+    acting: 4
   by_consequence:
-    read: 71
-    write: 6
+    read: 73
+    write: 4
   human_in_the_loop_required: 0
 operations:
 - path: /echo
@@ -27,6 +33,26 @@ operations:
 - path: /usage
   method: get
   operationId: getUsage
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /segment-features/{segment}
+  method: get
+  operationId: listSegmentFeatures
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /segment-result
+  method: get
+  operationId: getSegmentResult
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -144,70 +170,12 @@ operations:
   method: post
   operationId: queryCompanySegmentPost
   x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /person/segment-preview
-  method: get
-  operationId: previewPersonSegment
-  x-agentic-access:
     action-class: connected
     consequence: read
     subject: optional
     token:
       max-ttl: 3600
     audit: none
-- path: /person/segment-preview
-  method: post
-  operationId: previewPersonSegmentPost
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /person/segment-query
-  method: get
-  operationId: queryPersonSegment
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /person/segment-query
-  method: post
-  operationId: queryPersonSegmentPost
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
 - path: /email/validate
   method: get
   operationId: validateEmail
@@ -280,9 +248,9 @@ operations:
     token:
       max-ttl: 3600
     audit: none
-- path: /segment-features/{segment}
+- path: /appstore/privacy/labels
   method: get
-  operationId: listSegmentFeatures
+  operationId: listAppstorePrivacyLabels
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -290,9 +258,29 @@ operations:
     token:
       max-ttl: 3600
     audit: none
-- path: /segment-result
+- path: /appstore/privacy/datatype
   method: get
-  operationId: getSegmentResult
+  operationId: listAppstorePrivacyDataTypes
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /appstore/privacy/linkage
+  method: get
+  operationId: listAppstorePrivacyLinkage
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /appstore/privacy/purpose
+  method: get
+  operationId: listAppstorePrivacyPurpose
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -430,46 +418,6 @@ operations:
     token:
       max-ttl: 3600
     audit: none
-- path: /appstore/privacy/labels
-  method: get
-  operationId: listAppstorePrivacyLabels
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /appstore/privacy/datatype
-  method: get
-  operationId: listAppstorePrivacyDataTypes
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /appstore/privacy/linkage
-  method: get
-  operationId: listAppstorePrivacyLinkage
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /appstore/privacy/purpose
-  method: get
-  operationId: listAppstorePrivacyPurpose
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
 - path: /appstore/rankings
   method: get
   operationId: listAppstoreRankings
@@ -553,6 +501,52 @@ operations:
 - path: /appstore/sdks/{sdk_slug}/versions
   method: get
   operationId: getAppstoreSdkVersions
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /person/segment-preview
+  method: get
+  operationId: previewPersonSegment
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /person/segment-preview
+  method: post
+  operationId: previewPersonSegmentPost
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /person/segment-query
+  method: get
+  operationId: queryPersonSegment
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /person/segment-query
+  method: post
+  operationId: queryPersonSegmentPost
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -760,36 +754,6 @@ operations:
     token:
       max-ttl: 3600
     audit: none
-- path: /web/sites
-  method: get
-  operationId: listWebSites
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /web/sites/{domain}
-  method: get
-  operationId: getWebSite
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /web/sites/{domain}/tags
-  method: get
-  operationId: getWebSiteTags
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
 - path: /web/tags
   method: get
   operationId: listWebTags
@@ -813,6 +777,36 @@ operations:
 - path: /web/tags/{slug}/sites
   method: get
   operationId: getWebTagSites
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /web/sites
+  method: get
+  operationId: listWebSites
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /web/sites/{domain}
+  method: get
+  operationId: getWebSite
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /web/sites/{domain}/tags
+  method: get
+  operationId: getWebSiteTags
   x-agentic-access:
     action-class: connected
     consequence: read
