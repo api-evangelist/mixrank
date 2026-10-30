@@ -64,6 +64,166 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-MixRank is a company surfaced as a portfolio company of 500-global and added to the API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+MixRank curates ultra-high-frequency technographic, firmographic, and people data for enterprise data teams, refreshed as often as hourly. Its datasets cover 45M+ company profiles, 800M+ employee/people profiles, 20M+ iOS and Android mobile apps with granular SDK-install intelligence, in-app purchases, app rankings and privacy labels, and web technographics across 80M+ websites. MixRank exposes these datasets through a JSON REST Data API (Enrich, Match, segment queries, email verification, mobile app & SDK intelligence, and web tags) as well as flat-file feeds and native cloud deliveries (PostgreSQL, Snowflake, Amazon Redshift, BigQuery). Customers use it for B2B data enrichment, investment intelligence, fraud prevention and identity resolution, mobile/SDK competitive intelligence, and candidate enrichment.
 
-Backed by: 500-global — https://mixrank.com
+**Areas:** Company · Data · Technographics · Firmographics · People Data · Mobile App · SDK Intelligence · App Store · Web Technology · Sales Intelligence · Data Enrichment
+
+## MixRank on APIs.io
+
+Everything profiled for MixRank is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/mixrank/](https://apis.io/providers/mixrank/)** — or go straight to one of the APIs or properties below.
+
+### APIs (16)
+
+- [MixRank Account API](https://apis.io/apis/mixrank/mixrank-account-api/) — The Account API from MixRank — 2 operation(s) for account.
+- [MixRank Audience Segments API](https://apis.io/apis/mixrank/mixrank-audience-segments-api/) — The Audience Segments API from MixRank — 2 operation(s) for audience segments.
+- [MixRank Companies API](https://apis.io/apis/mixrank/mixrank-companies-api/) — The Companies API from MixRank — 9 operation(s) for companies.
+- [MixRank Email API](https://apis.io/apis/mixrank/mixrank-email-api/) — The Email API from MixRank — 4 operation(s) for email.
+- [MixRank iOS App Privacy API](https://apis.io/apis/mixrank/mixrank-ios-app-privacy-api/) — The iOS App Privacy API from MixRank — 4 operation(s) for ios app privacy.
+- [MixRank iOS Apps API](https://apis.io/apis/mixrank/mixrank-ios-apps-api/) — The iOS Apps API from MixRank — 12 operation(s) for ios apps.
+- [MixRank iOS Developers API](https://apis.io/apis/mixrank/mixrank-ios-developers-api/) — The iOS Developers API from MixRank — 1 operation(s) for ios developers.
+- [MixRank iOS Rankings API](https://apis.io/apis/mixrank/mixrank-ios-rankings-api/) — The iOS Rankings API from MixRank — 2 operation(s) for ios rankings.
+- [MixRank iOS SDKs API](https://apis.io/apis/mixrank/mixrank-ios-sdks-api/) — The iOS SDKs API from MixRank — 7 operation(s) for ios sdks.
+- [MixRank People API](https://apis.io/apis/mixrank/mixrank-people-api/) — The People API from MixRank — 2 operation(s) for people.
+- [MixRank Play Store Apps API](https://apis.io/apis/mixrank/mixrank-play-store-apps-api/) — The Play Store Apps API from MixRank — 10 operation(s) for play store apps.
+- [MixRank Play Store Developers API](https://apis.io/apis/mixrank/mixrank-play-store-developers-api/) — The Play Store Developers API from MixRank — 1 operation(s) for play store developers.
+- [MixRank Play Store Rankings API](https://apis.io/apis/mixrank/mixrank-play-store-rankings-api/) — The Play Store Rankings API from MixRank — 2 operation(s) for play store rankings.
+- [MixRank Play Store SDKs API](https://apis.io/apis/mixrank/mixrank-play-store-sdks-api/) — The Play Store SDKs API from MixRank — 7 operation(s) for play store sdks.
+- [MixRank Web Tags API](https://apis.io/apis/mixrank/mixrank-web-tags-api/) — The Web Tags API from MixRank — 3 operation(s) for web tags.
+- [MixRank Websites API](https://apis.io/apis/mixrank/mixrank-websites-api/) — The Websites API from MixRank — 3 operation(s) for websites.
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### AsyncAPI (1)
+
+Event-driven and webhook contracts.
+
+- [Mixrank Webhooks](https://apis.io/asyncapis/mixrank/mixrank-webhooks/)
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [mixrank](https://apis.io/servers/mixrank/mixrank/)
+
+#### Agentic access (1)
+
+Which operations an agent can call, which act, and which need a human in the loop.
+
+- [Mixrank Agentic Access](https://apis.io/agentic-access/mixrank/mixrank-agentic-access/)
+
+#### Collections (16)
+
+Postman and Open Collection request collections.
+
+- [MixRank Data Account API](https://apis.io/collections/mixrank/open-mixrank-account-api/)
+- [MixRank Data Account Audience Segments API](https://apis.io/collections/mixrank/open-mixrank-audience-segments-api/)
+- [MixRank Data Account Companies API](https://apis.io/collections/mixrank/open-mixrank-companies-api/)
+- [MixRank Data Account Email API](https://apis.io/collections/mixrank/open-mixrank-email-api/)
+- [MixRank Data Account iOS App Privacy API](https://apis.io/collections/mixrank/open-mixrank-ios-app-privacy-api/)
+- [MixRank Data Account iOS Apps API](https://apis.io/collections/mixrank/open-mixrank-ios-apps-api/)
+- [MixRank Data Account iOS Developers API](https://apis.io/collections/mixrank/open-mixrank-ios-developers-api/)
+- [MixRank Data Account iOS Rankings API](https://apis.io/collections/mixrank/open-mixrank-ios-rankings-api/)
+- [MixRank Data Account iOS SDKs API](https://apis.io/collections/mixrank/open-mixrank-ios-sdks-api/)
+- [MixRank Data Account People API](https://apis.io/collections/mixrank/open-mixrank-people-api/)
+- [MixRank Data Account Play Store Apps API](https://apis.io/collections/mixrank/open-mixrank-play-store-apps-api/)
+- [MixRank Data Account Play Store Developers API](https://apis.io/collections/mixrank/open-mixrank-play-store-developers-api/)
+- [MixRank Data Account Play Store Rankings API](https://apis.io/collections/mixrank/open-mixrank-play-store-rankings-api/)
+- [MixRank Data Account Play Store SDKs API](https://apis.io/collections/mixrank/open-mixrank-play-store-sdks-api/)
+- [MixRank Data Account Web Tags API](https://apis.io/collections/mixrank/open-mixrank-web-tags-api/)
+- [MixRank Data Account Websites API](https://apis.io/collections/mixrank/open-mixrank-websites-api/)
+
+#### Overlays (1)
+
+OpenAPI overlays, including conversational phrasing for each operation.
+
+- [Mixrank Overlay](https://apis.io/overlays/mixrank/mixrank-overlay/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Mixrank Authentication](https://apis.io/security/mixrank/mixrank-authentication/)
+- [Mixrank Domain Security](https://apis.io/security/mixrank/mixrank-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Mixrank Plans](https://apis.io/plans/mixrank/mixrank-plans/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Mixrank Rate Limits](https://apis.io/rate-limits/mixrank/mixrank-rate-limits/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://mixrank.com)
+- [Documentation](https://mixrank.com/api/documentation)
+- [Getting started](https://mixrank.com/get-started/)
+- [API reference](https://mixrank.com/api/documentation)
+- [Pricing](https://mixrank.com/pricing)
+- [Sign up](https://mixrank.com/get-started/)
+- [Compliance](https://mixrank.com/privacy-policy/)
+- [Terms of service](https://mixrank.com/terms/)
+- [Privacy policy](https://mixrank.com/privacy-policy/)
+
+## API Evangelist rating
+
+**Kin Score 57.8** — strong · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 54.2 |
+| Contract governance | 18.2 |
+| Operational transparency | 39.5 |
+| Developer ergonomics | 56.5 |
+| Access clarity | 84.2 |
+
+**Agent readiness 28.5** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | derived (partial credit) |
+| OpenAPI Examples | documented (partial credit) |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | yes |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 29.4** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/mixrank/](https://apis.io/providers/mixrank/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for MixRank: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/mixrank/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
